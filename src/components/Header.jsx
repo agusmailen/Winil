@@ -13,7 +13,7 @@ const Header = (props) => {
                 <div>
                     <ul>
                         <li>Mi Trabajo</li>
-                        <li>Iniciar Sesión</li>
+                        <a href='/Login'><li>Iniciar Sesión</li></a>
                         <li>Contacto</li>
                     </ul>
                 </div>
