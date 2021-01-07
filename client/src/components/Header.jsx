@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import logo from '../assets/static/iconHeader.jpg';
 import '../assets/styles/components/Header.scss';
@@ -6,14 +7,16 @@ import '../assets/styles/components/Header.scss';
 const Header = (props) => {
     return (
         <header>
-            <a href='/'>
+            <Link to='/'>
                 <img className='header__img' src={logo} alt='icon' />
-            </a>
+            </Link>
             <div className='header__menu'>
                 <div>
                     <ul>
                         <li>Mi Trabajo</li>
-                        <a href='/Login'><li>Iniciar Sesión</li></a>
+                        <li>
+                            <Link to='/Login'>Iniciar sesión</Link>
+                        </li>
                         <li>Contacto</li>
                     </ul>
                 </div>
