@@ -21,15 +21,7 @@ class UserService {
 		user.save()
 		return user
 	}
-
-	delete(userId) {
-		return UserModel.findOneAndDelete(userId)
-	}
-
-	update(id, payload) {
-		return UserModel.findByIdAndUpdate(id, payload)
-	}
-
+	
 	async login(payload) {
 		let { email, password } = payload;
 		const user = await UserModel.findOne({ email: email.payload }).exec();
@@ -40,5 +32,14 @@ class UserService {
 		user.password = jwt.token(user.password);
 		return user
 	}
+
+	delete(userId) {
+		return UserModel.findOneAndDelete(userId)
+	}
+
+	update(id, payload) {
+		return UserModel.findByIdAndUpdate(id, payload)
+	}
+
 }
 module.exports = UserService;

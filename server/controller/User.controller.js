@@ -14,7 +14,7 @@ class UserController {
 			})
 		})
 		.catch( err => { 
-			return res.json ({ status:400, message: err })
+			return res.json ({ status:400, message: err });
 		});
 	}
 

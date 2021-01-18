@@ -1,7 +1,12 @@
-const initialState = { user: null };
+const initialState = { user: null, error: false };
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
+		case 'REGISTER_REQUEST':
+			return {
+				...state,
+				user: action.payload,
+			};
 		case 'LOGIN_REQUEST':
 			return {
 				...state,
@@ -11,11 +16,11 @@ const reducer = (state = initialState, action) => {
             return {
 				...state,
 				user: action.payload,
-          };
-		case 'REGISTER_REQUEST':
+			};
+		case 'LOGIN_FAILED':
 			return {
 				...state,
-				user: action.payload,
+				error: true,
 			};
 		default:
 			return state;
