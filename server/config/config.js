@@ -8,4 +8,4 @@ const config = {
 	algorithm: process.env.ALGORITHM
 }
 
-module.exports = { config };
+module.exports = { config } ;

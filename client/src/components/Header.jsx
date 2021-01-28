@@ -1,33 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-import logo from '../assets/static/iconHeader.jpg';
 import '../assets/styles/components/Header.scss';
 
-const Header = (props) => {
-    return (
-        <header>
-            <Link to='/'>
-                <img className='header__img' src={logo} alt='icon' />
-            </Link>
-            <div className='header__menu'>
-                <div>
-                    <ul>
-                        <li>Mi Trabajo</li>
-                        <li>
-                            <Link to='/Login'>Iniciar sesión</Link>
-                        </li>
-                        <li>Contacto</li>
-                    </ul>
-                </div>
+class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeClass: 'header__nav_initial',
+        };
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 30) {
+                this.setState({ activeClass: 'header__nav_last' });
+            } else {
+                this.setState({ activeClass: 'header__nav_initial' });
+            }
+        });
+    };
+
+    render() {
+        const { activeClass } = this.state;
+        return (
+            <div className='header__container_initial' id='background'>
+                <nav className={activeClass}>
+                    <h2>
+                        <Link to='/'>WINIL</Link>
+                    </h2>
+                    <div className='header__menu'>
+                        <div className='header__menu--ul'>
+                            <ul>
+                                <li>
+                                    <Link to='/Login'>Mi trabajo</Link>
+                                </li>
+                                <li>
+                                    <Link to='/Login'>Iniciar sesión</Link>
+                                </li>
+                                <li>
+                                    <Link to='/'>Contacto</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </header>
-    );
-};
-// const mapStateToProps = (state) => {
-//     return {
-//         user: state.user,
-//     };
-// };
-// export default connect(mapStateToProps, null)(Header);
-export default (Header);
+        );
+    }
+}
+
+export default connect()(Header);

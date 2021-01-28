@@ -34,8 +34,10 @@ class UserController {
 
 	create(req, res) {
 		const payload = req.body;
+		const hasPayload = Object.keys(payload).length;
 		User.create(payload)
 		.then( user => {
+			if(!hasPayload) return res.json({ status: 400, message: 'El fomulario está vacío' });
 			if (!user) return res.json({ status: 400, message: 'El usuario ya existe' });
 			return res.json({
 				status: 200,
@@ -43,7 +45,8 @@ class UserController {
 			})
 		})
 		.catch(err => {
-			return res.json ({ status:400, message: err });
+			console.log(err)
+			return res.json ({ status: 400, error: err });
 		});
 	}
 

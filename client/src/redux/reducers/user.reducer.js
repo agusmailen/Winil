@@ -1,12 +1,9 @@
-const initialState = { user: null, error: false };
+const initialState = { user: {}, error: null };
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'REGISTER_REQUEST':
-			return {
-				...state,
-				user: action.payload,
-			};
+			return { ...state, user: action.payload, error: null };
 		case 'LOGIN_REQUEST':
 			return {
 				...state,
@@ -18,13 +15,12 @@ const reducer = (state = initialState, action) => {
 				user: action.payload,
 			};
 		case 'LOGIN_FAILED':
-			return {
-				...state,
-				error: true,
-			};
+			return { ...state };
+		case 'REGISTER_FAILED':
+			return { ...state, error: action.error };
 		default:
 			return state;
 	};
 };
 
-export default reducer;
+export default userReducer;

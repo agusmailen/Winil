@@ -25,10 +25,10 @@ const userSchema = new Schema({
 		type: String,
 		required: true
 	},
-	active: {
-		type: Boolean,
-		required: true
-	}
+	// active: {
+	// 	type: Boolean,
+	// 	required: true
+	// }
 });
 
 const User = mongoose.model('user', userSchema);
