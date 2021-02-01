@@ -11,7 +11,6 @@ module.exports = {
 				status:500,
 				response: 'Ocurrió un error'
 			});
-			console.log('tokeeeen', req.headers['tokenkey']);
 		}
 	}
 }

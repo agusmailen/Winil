@@ -1,23 +1,18 @@
 const initialState = { user: {}, error: null };
 
 const userReducer = (state = initialState, action) => {
-	switch (action.type) {
+	const { type, payload, error } = action;
+	switch (type) {
 		case 'REGISTER_REQUEST':
-			return { ...state, user: action.payload, error: null };
+			return { ...state, user: payload, error: null };
 		case 'LOGIN_REQUEST':
-			return {
-				...state,
-				user: action.payload,
-			};
+			return { ...state, user: payload, error: null };
         case 'LOGOUT_REQUEST':
-            return {
-				...state,
-				user: action.payload,
-			};
+            return { ...state, user: payload };
 		case 'LOGIN_FAILED':
-			return { ...state };
+			return { ...state, user: {}, error };
 		case 'REGISTER_FAILED':
-			return { ...state, error: action.error };
+			return { ...state, user: {}, error };
 		default:
 			return state;
 	};

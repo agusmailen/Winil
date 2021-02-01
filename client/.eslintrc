@@ -152,7 +152,7 @@
       "object-curly-spacing": [2, "always"],
       "one-var": 0,
       "operator-assignment": 0,
-      "operator-linebreak": [2, "after"],
+      "operator-linebreak": [2, "after", { "overrides": { "?": "ignore", ":": "ignore"} }],
       "padded-blocks": 0,
       "quote-props": 0,
       "quotes": [2, "single", "avoid-escape"],
@@ -205,6 +205,8 @@
       "wrap-regex": 0,
       "yoda": [2, "never"],
       "jsx-a11y/label-has-associated-control": "off",
-      "jsx-a11y/label-has-for":"off"
+      "jsx-a11y/label-has-for":"off",
+      "react/jsx-fragments": ["off"],
+      "no-useless-escape": "off"
     }    
 }

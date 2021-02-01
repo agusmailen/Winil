@@ -24,11 +24,7 @@ const userSchema = new Schema({
 	password: {
 		type: String,
 		required: true
-	},
-	// active: {
-	// 	type: Boolean,
-	// 	required: true
-	// }
+	}
 });
 
 const User = mongoose.model('user', userSchema);

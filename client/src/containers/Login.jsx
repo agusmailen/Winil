@@ -1,45 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { loginRequest } from '../redux/actions/User.actions';
 import '../assets/styles/components/Login.scss';
 
 const Login = (props) => {
-
-	const [form, setValues] = useState({});
-	const { loginRequest } = props;
-	const handleInput = (event) => {
-        setValues({
-            ...form,
-            [event.target.name]: event.target.value,
-        });
-	};
+	const {
+		userData,
+		error,
+	} = props;
 
 	useEffect(() => {
-		console.log('props', props);
-	}, [props]);
+		console.log('me actualice payload', userData);
+		console.log('me actualice error', error);
+	}, [userData, error]);
 
-	const handleSubmit = (event) => {
-		console.log('email', event.target.standard_basic_email.value.length);
-		console.log('pass', event.target.standard_basic_password.value);
-		if (!event.target.standard_basic_email.value.length) {
-			alert('ESTE CAMPO ESTA VACIO NO PODES CONTINUAR');
-			console.log('entro');
-		}
+	const { register, handleSubmit, errors } = useForm();
 
-		loginRequest(form);
-		event.preventDefault();
+	const onSubmit = (data) => {
+		props.loginRequest(data);
 	};
 
 	return (
 		<section className='login'>
 			<section className='login__container'>
 				<h2>Inícia Sesión</h2>
-				<form action='' className='login__container--form' onSubmit={handleSubmit}>
-					<TextField id='standard_basic_email' label='Email' name='email' onChange={handleInput} />
-					<TextField id='standard_basic_password' label='Constraseña' name='password' type='password' onChange={handleInput} />
+				<form action='' className='login__container--form' onSubmit={handleSubmit(onSubmit)}>
+					<div>
+						<TextField
+							id='standard_basic_email'
+							label='Email'
+							name='email'
+							inputRef={register({ required: true })}
+						/>
+						{errors.email && errors.email.type === 'required' && <p className='text-error'>Ingrese su email</p>}
+					</div>
+					<div>
+						<TextField
+							id='standard_basic_password'
+							label='Constraseña'
+							name='password'
+							type='password'
+							inputRef={register({ required: true })}
+						/>
+						{errors.password && errors.password.type === 'required' && <p className='text-error'>Ingrese su contraseña</p>}
+					</div>
 					<Button variant='outlined' type='submit'>Iniciar Sesión</Button>
 					<div className='login__container--recoverPass'>
 						<Link to='/'>Olvidé mi contraseña</Link>
@@ -55,7 +63,8 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-    userData: state.user.user,
+	userData: state.user.user,
+	error: state.user.error,
 });
 
 export default connect(mapStateToProps, {

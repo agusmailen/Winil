@@ -16,6 +16,7 @@ class UserService {
 		const existUser = await UserModel.findOne({ email: payload.email }).exec();
 		if (existUser) return false;
 		payload = { name, lastName, phone, email, password };
+		if (!payload.name || !payload.lastName || !payload.phone || !payload.email || !password) return false;
 		payload.password = jwt.token(payload.password);
 		const user = await new UserModel(payload);
 		user.save();
