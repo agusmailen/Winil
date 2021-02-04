@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../components/Header';
+import Contact from '../components/Contact';
 import '../assets/styles/App.scss';
 
 const Home = () => {
 	return (
-		<Header />
+		<Fragment>
+			<Header />
+			<Contact />
+		</Fragment>
 	);
 };
 export default Home;
