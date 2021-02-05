@@ -1,6 +1,7 @@
 const UserModel = require('../models/User.model');
 const jwt = require('../utils/jwt');
 
+
 class UserService {
 
 	get(id) {
@@ -39,6 +40,10 @@ class UserService {
 
 	update(id, payload) {
 		return UserModel.findByIdAndUpdate(id, payload)
+	}
+
+	authUser(payload) {
+		return (jwt.decoded(payload));
 	}
 
 }

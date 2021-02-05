@@ -13,8 +13,10 @@ const Register = (props) => {
 	} = props;
 
 	useEffect(() => {
-		console.log('me actualice payload', payload);
-		console.log('me actualice error', error);
+		if (payload && payload.payload) {
+			window.location.href = 'http://localhost:3000/Login';
+		}
+
 	}, [payload, error]);
 
 	const { register, handleSubmit, errors, getValues } = useForm();

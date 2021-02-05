@@ -8,12 +8,6 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: table;
-	height: auto;
-  }
 h2 {
 	color: #131418;
 	margin: 0;

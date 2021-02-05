@@ -9,5 +9,7 @@ routes.post('/user', (req, res, next) => privateRoute(req, res, next),  User.cre
 routes.post('/user/login', (req, res, next) => privateRoute(req, res, next), ( User.login.bind(User)));
 routes.put('/user/:id', (req, res, next) => privateRoute(req, res, next), User.update.bind(User));
 routes.delete('/user/:id', (req, res, next) => privateRoute(req, res, next), User.delete.bind(User));
+//verify token 
+routes.post('/user/verifyToken', (req, res, next) => privateRoute(req, res, next), User.authUser.bind(User));
 
 module.exports = routes;
