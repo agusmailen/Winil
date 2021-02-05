@@ -16,6 +16,10 @@ const Login = (props) => {
 	useEffect(() => {
 		console.log('me actualice payload', userData);
 		console.log('me actualice error', error);
+		if (userData && userData.payload) {
+			localStorage.setItem('token', userData.payload);
+			props.history.push('/user/profile');
+		}
 	}, [userData, error]);
 
 	const { register, handleSubmit, errors } = useForm();

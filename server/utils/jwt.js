@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
+const config = require('../config/config').config;
 
 module.exports = {
-	token: (data) => jwt.sign({data}, config.config.key, config.algorithm, { expiresIn: 60 * 60 * 48 }),
-	decoded: (token) => jwt.verify(token, config.config.key, config.algorithm, (err, decoded) => {
-		if(err) return false;
+	token: (data) => jwt.sign({data}, config.key, { expiresIn: '2days' }),
+	decoded: (token) => jwt.verify(token, config.key, (err, decoded) => {
+		if(err) return console.log('error', err);
 		return decoded;
 	})
 };

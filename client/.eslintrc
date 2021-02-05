@@ -207,6 +207,10 @@
       "jsx-a11y/label-has-associated-control": "off",
       "jsx-a11y/label-has-for":"off",
       "react/jsx-fragments": ["off"],
-      "no-useless-escape": "off"
+      "no-useless-escape": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-first-prop-new-line": "off",
+      "react/jsx-max-props-per-line": [1, { "maximum": 2 }],
+      "arrow-parens": "off"
     }    
 }
