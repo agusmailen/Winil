@@ -97,9 +97,7 @@ class UserController {
 	authUser(req, res) {
 		const payload = req.body.token;
 		const isAuthUser =  User.authUser(payload);
-		if (!isAuthUser) {
-			return res.json({ status: 500, message: 'token no válido' });
-		}
+		if (!isAuthUser) return res.json({ status: 500, message: 'token no válido' });
 		return res.json({ status: 200, payload: isAuthUser, message: 'token válido' });
 	}
 }
