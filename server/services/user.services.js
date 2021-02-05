@@ -1,6 +1,7 @@
 const UserModel = require('../models/User.model');
 const jwt = require('../utils/jwt');
 
+
 class UserService {
 
 	get(id) {
@@ -12,14 +13,25 @@ class UserService {
 	}
 
 	async create(payload) {
-		let { name, lastName, phone, email, password, active } = payload;
-		const existUser = await UserModel.findOne({ email: email.payload }).exec();
+		let { name, lastName, phone, email, password } = payload;
+		const existUser = await UserModel.findOne({ email: payload.email }).exec();
 		if (existUser) return false;
-		payload = { name, lastName, phone, email, password, active };
+		payload = { name, lastName, phone, email, password };
+		if (!payload.name || !payload.lastName || !payload.phone || !payload.email || !password) return false;
 		payload.password = jwt.token(payload.password);
 		const user = await new UserModel(payload);
-		user.save()
-		return user
+		user.save();
+		return (user);
+	}
+	
+	async login(payload) {
+		let { email, password } = payload;
+		const user = await UserModel.findOne({ email: payload.email }).exec();
+		if (!user) return false;
+		payload = { email, password};
+		const verifyPassword = jwt.decoded(user.password).data;
+		if (payload.email !== user.email || payload.password !== verifyPassword) return false;
+		return jwt.token(user);
 	}
 
 	delete(userId) {
@@ -30,15 +42,9 @@ class UserService {
 		return UserModel.findByIdAndUpdate(id, payload)
 	}
 
-	async login(payload) {
-		let { email, password } = payload;
-		const user = await UserModel.findOne({ email: email.payload }).exec();
-		if ( !user) return false;
-		payload = { email, password};
-		const verifyPassword = jwt.decoded(user.password);
-		if (payload.email !== user.email || payload.password !== verifyPassword) return false
-		user.password = jwt.token(user.password);
-		return user
+	authUser(payload) {
+		return (jwt.decoded(payload));
 	}
+
 }
 module.exports = UserService;

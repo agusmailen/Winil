@@ -1,36 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-header {
-    width: 100%;
-    height: 80px;
+.header__container_initial {
+    height: 100vh;
+    background-image: url(https://musicndtech.files.wordpress.com/2016/03/fondo_hd_169_mesa_mezclas_bn.jpg);
+    background-size: cover;
+    font-family: 'Raleway';
+    h2 {
+        letter-spacing: 5px;
+    }
+    h2 a{
+        color: white;
+    }
+    h2 a::before{
+        content: '●';
+    }
+}
+.header__nav_initial {
+    transition: all 0.5s ease;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: black;
-    color: white;
-    font-family: 'Raleway', sans-serif;
+    height: 140px;
+    padding: 0px 60px;
 }
-.header__img{
-    width: 150px;
-    height: 70px;
-    margin-left: 30px;
+.header__nav_last{
+    transition: all 0.5s ease;
+    background-color: #212121;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 78px;
+    padding: 0px 60px;
+    position: fixed;
+    width: 91%;
 }
 .header__menu ul{
-    list-style: none;
     display: flex;
     align-items: center;
-    padding: 0px;
-    margin: 0;
-    margin-right: 30px;
-}
-.header__menu li{
-    padding: 25px;
-    cursor: pointer;
-}
-.header__menu li:hover{
-    text-decoration: underline;
-}
-.header__menu a{
-    text-decoration: none;
-    color: white;
-    margin: 0px;
+    justify-content: space-between;
+    li {
+        list-style: none;
+        margin-left: 30px;
+    }
+    li a {
+        color:white;
+        cursor: pointer;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: large;
+    }
+    li a:hover {
+        text-decoration: underline;
+    }
 }
