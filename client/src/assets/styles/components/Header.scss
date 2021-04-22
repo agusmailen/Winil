@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 .header__container_initial {
-    height: 100vh;
-    background-image: url(https://musicndtech.files.wordpress.com/2016/03/fondo_hd_169_mesa_mezclas_bn.jpg);
+    height: 140px;
+    background-color: transparent;
     background-size: cover;
     font-family: 'Raleway';
     h2 {
@@ -13,9 +13,11 @@
     h2 a::before{
         content: '●';
     }
+    position: relative;
+    z-index: 2;
 }
 .header__nav_initial {
-    transition: all 0.5s ease;
+    transition: all 0.9s ease;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -24,15 +26,16 @@
     padding: 0px 60px;
 }
 .header__nav_last{
-    transition: all 0.5s ease;
+    transition: all 0.9s ease;
     background-color: #212121;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 78px;
+    height: 90px;
     padding: 0px 60px;
     position: fixed;
-    width: 91%;
+    width: 92%;
+    z-index: 1;
 }
 .header__menu ul{
     display: flex;
@@ -48,6 +51,7 @@
         font-weight: bold;
         letter-spacing: 2px;
         font-size: large;
+        font-size: .8em;
     }
     li a:hover {
         text-decoration: underline;

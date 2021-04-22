@@ -5,6 +5,7 @@ import Login from '../containers/Login';
 import PrivateRoute from '../containers/PrivateRoute';
 import Register from '../containers/Register';
 import Profile from '../containers/Profile';
+import Player from '../containers/Player';
 
 const App = () => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
+          <Route exact path='/Player_id' component={Player} />
           <PrivateRoute exact path='/user/profile' component={Profile} />
       </Switch>
   </BrowserRouter>
