@@ -1,0 +1,45 @@
+
+video {
+	border: 1px solid red;
+	source {
+		width: 500px;
+		height: 400px;
+	}
+}
+.player_container {
+	width: 100%;
+    // border: 1px solid red;
+    display: flex;
+    background-color: #c4c1c1;
+    height: 86%;
+    position: absolute;
+    top: 90px;
+	align-items: center;
+}
+.react-player {
+	width: 550px !important;
+	height: 300px !important;
+	justify-self:  flex-end;
+	text-align: left;
+	margin: 30px 70px;
+}
+.player_description {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	// border: red solid 1px;
+	width: 40%;
+	height: 60%;
+	padding: 10px;
+	align-items: flex-start;
+	h1{
+		margin: 0;
+		color: #212121;
+	}
+	border-bottom: 1.5px solid #212121;
+}
+.MuiButton-containedSecondary {
+	background-color: #353233 !important;
+	// align-self: flex-end;
+	// justify-self: flex-end;
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+.contact__container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	background-color: #111111
+}
+.form-title{
+	font-family: 'Oswald', sans-serif;
+	font-size: 24px;
+	padding: 20px;
+}
+.contact__container--form {
+	width: 50%;
+	// border: 1px solid red;
+	min-height: 100vh;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	padding: 50px 0px 0px 0px;
+	background-image: url(https://img.freepik.com/foto-gratis/pared-insonorizada-estudio-sonido-fondo-esponja-absorbente-sonido_38816-269.jpg?size=626&ext=jpg&ga=GA1.2.1173097843.1604016000);
+	background-repeat: no-repeat;
+	background-size: cover;
+	.form-title {
+		align-self: flex-start;
+		justify-self: start;
+		margin: 0;
+		padding: 20px 100px;
+		color: beige;
+		margin-top: 20px;
+		margin-left: 40px;
+		letter-spacing: 2px;
+		line-height: 1.5em;
+		font-size: 23px;
+	}
+}
+.contact--form--inputs {
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	height: auto;
+	div {
+		display: flex;
+	}
+}
+.contact__container--media {
+	// border: 1px solid red;
+	width: 50%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.contact__container--media--data {
+	// border: 1px solid red;
+	height: 300px;
+	margin: 63px 0px 0px 120px;
+	height: 400px;
+}
+.contact-input {
+	outline: none;
+	padding: 16px 7px;
+	width: 180px;
+	margin: 5px;
+}
+.contact-textArea {
+	outline: none;
+	margin: 5px;
+	width: 372px;
+	padding: 12px 8px;
+}
+.contact-input::placeholder,
+.contact-textArea::placeholder {
+	color: #616161;
+	font-size: 1.1em;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+.form__container{
+	// border: 1px solid red;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+}
+.contact-button{
+	align-self: flex-end;
+	background-color: #AB47BC;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	padding: 11px 23px;
+	margin: 0px !important;
+	margin-right: 5px !important;
+	color: wheat;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: 15px;
+}
+.contact--media--title {
+	font-family: 'Oswald', sans-serif;
+	font-size: 30px;
+	color: beige;
+	letter-spacing: 2px;
+}
+.contact-data-description {
+	p {
+		margin: 0;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 16px;
+		color: beige;
+	}
+	h5 {
+		color: #AB47BC;
+		font-family: 'Oswald', sans-serif;
+		margin: 0;
+		font-size: 18px;
+		letter-spacing: 1px;
+	}
+	margin: 40px 0px;
+}
+.icon-wps {
+	// border: red solid 1px;
+	align-self: flex-end;
+	margin-right: 50px;
+	img {
+		width: 75px;
+		height: 75px;
+		cursor: pointer;
+	}
+}

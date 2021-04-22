@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../assets/styles/components/Header.scss';
 
 class Header extends Component {
@@ -10,22 +9,33 @@ class Header extends Component {
         this.state = {
             activeClass: 'header__nav_initial',
         };
-    }
+    };
 
     componentDidMount() {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= 30) {
-                this.setState({ activeClass: 'header__nav_last' });
-            } else {
-                this.setState({ activeClass: 'header__nav_initial' });
-            }
-        });
+        const { location } = this.props;
+        if (location.pathname === '/') {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 30) {
+                    this.setState({ activeClass: 'header__nav_last' });
+                } else {
+                    this.setState({ activeClass: 'header__nav_initial' });
+                }
+            });
+        }
+        this.foo();
+    };
+
+    foo = () => {
+        const { location } = this.props;
+        if (location.pathname !== '/') {
+            this.setState({ activeClass: 'header__nav_last' });
+        }
     };
 
     render() {
         const { activeClass } = this.state;
         return (
-            <div className='header__container_initial' id='background'>
+            <div className='header__container_initial'>
                 <nav className={activeClass}>
                     <h2>
                         <Link to='/'>WINIL</Link>
@@ -34,13 +44,16 @@ class Header extends Component {
                         <div className='header__menu--ul'>
                             <ul>
                                 <li>
-                                    <Link to='/Login'>Mi trabajo</Link>
+                                    <Link to='/Login'>INICIAR SESION</Link>
                                 </li>
                                 <li>
-                                    <Link to='/Login'>Iniciar sesión</Link>
+                                    <Link to='/Login'>SERVICIOS</Link>
                                 </li>
                                 <li>
-                                    <Link to='/'>Contacto</Link>
+                                    <Link to='/'>TRACKS</Link>
+                                </li>
+                                <li>
+                                    <Link to='/'>CONTACTO</Link>
                                 </li>
                             </ul>
                         </div>
@@ -51,4 +64,4 @@ class Header extends Component {
     }
 }
 
-export default (Header);
+export default withRouter(Header);
