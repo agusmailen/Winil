@@ -50,7 +50,7 @@ h1 {
 	}
 }
 .filter_sections {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 .MuiCheckbox-colorSecondary.Mui-checked {
 	color: #5f5b5c !important;
@@ -78,3 +78,21 @@ h1 {
 		font-size: 1em;
 	}
 }
+.MuiTypography-body1{
+	font-size: .85rem !important;
+    padding: 5px !important
+}
+.MuiButtonBase-root {
+	display: block !important;
+}
+.MuiButton-label {
+	width: 74% !important;
+}
+.MuiButton-text {
+    padding: 3px 10px !important;
+}
+.MuiButtonBase-label:disabled {
+	cursor: not-allowed;
+	pointer-events: auto;
+}
+

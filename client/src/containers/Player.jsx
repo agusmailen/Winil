@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-// import DeleteIcon from '@material-ui/icons/Delete';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-// import Icon from '@material-ui/core/Icon';
-// import SaveIcon from '@material-ui/icons/Save';
 import '../assets/styles/components/Player.scss';
 import ReactPlayer from 'react-player';
 import Header from '../components/Header';
