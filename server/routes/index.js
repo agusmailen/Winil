@@ -11,5 +11,6 @@ routes.put('/user/:id', (req, res, next) => privateRoute(req, res, next), User.u
 routes.delete('/user/:id', (req, res, next) => privateRoute(req, res, next), User.delete.bind(User));
 //verify token 
 routes.post('/user/verifyToken', (req, res, next) => privateRoute(req, res, next), User.authUser.bind(User));
+//Tracks
 
 module.exports = routes;

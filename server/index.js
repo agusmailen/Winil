@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 const url = `mongodb://localhost:27017/Winil`;
-mongoose.connect(url, { useNewUrlParser: true }, error => error ? console.error(`MongoDB Conneciton error: ${error}`) : null);
+mongoose.connect(url, { useNewUrlParser: true }, error => error ? console.error(`MongoDB Connection error: ${error}`) : null);
 mongoose.connection.on('connected', () => console.info("[MongoDB] Connected to " + url));
 
 app.use(bodyParser.urlencoded({ useNewUrlParser: true } ));
