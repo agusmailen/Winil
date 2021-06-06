@@ -18,7 +18,7 @@ class UserController {
 		});
 	}
 
-	getAll(req, res) {
+	getAll(res) {
 		User.getAll({})
 		.then( allUsers => {
 			if (!allUsers) return res.json({ status: 404, message: 'Usuarios no encontrados' });

@@ -10,7 +10,7 @@ const trackSchema = new Schema({
 		type: String,
 		required: true
 	},
-	link: {
+	source: {
 		type: String,
 		required: true
 	},
