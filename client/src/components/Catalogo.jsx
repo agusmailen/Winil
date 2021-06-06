@@ -11,7 +11,6 @@ const Catalogue = ({ children }) => {
 		<div className='background_container'>
 			<img src={background} alt='' />
 		</div>
-		<h1>CATALOGO</h1>
 		<div className='catalogue_container'>
 			<div className='filter_container'>
 				<Generos></Generos>
