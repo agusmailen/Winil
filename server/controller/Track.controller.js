@@ -34,6 +34,22 @@ class TrackController {
 		});
 	}
 
+	get(req, res) {
+		console.log('entreeeee');
+		const trackId = req.params.id;
+		Track.get(trackId)
+		.then( track => {
+			if (!track) return res.json({ status: 404, message: 'Track no encontrado' });
+			return res.json({
+				status:200,
+				payload: track
+			})
+		})
+		.catch( err => { 
+			return res.json ({ status:400, message: err });
+		});
+	}
+
 }
 
 module.exports = TrackController;
