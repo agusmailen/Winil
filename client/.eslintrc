@@ -211,6 +211,8 @@
       "react/jsx-props-no-spreading": "off",
       "react/jsx-first-prop-new-line": "off",
       "react/jsx-max-props-per-line": [1, { "maximum": 2 }],
-      "arrow-parens": "off"
+      "arrow-parens": "off",
+      "import/prefer-default-export": 0,
+      "react/destructuring-assignment": 0
     }    
 }
