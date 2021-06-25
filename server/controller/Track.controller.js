@@ -35,7 +35,6 @@ class TrackController {
 	}
 
 	get(req, res) {
-		console.log('entreeeee');
 		const trackId = req.params.id;
 		Track.get(trackId)
 		.then( track => {
