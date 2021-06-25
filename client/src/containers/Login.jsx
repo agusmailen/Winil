@@ -50,7 +50,7 @@ const Login = (props) => {
 						/>
 						{errors.password && errors.password.type === 'required' && <p className='text-error'>Ingrese su contraseña</p>}
 					</div>
-					<Button variant='outlined' type='submit'>Iniciar Sesión</Button>
+					<Button variant='outlined' type='submit' id='register'>Iniciar Sesión</Button>
 					<div className='login__container--recoverPass'>
 						<Link to='/'>Olvidé mi contraseña</Link>
 					</div>

@@ -13,10 +13,13 @@ const Catalogue = (props) => {
 	const { payload, error } = props;
 	useEffect(() => {
 		props.listRequest();
+		console.log(error);
 	}, []);
-
 	console.log(payload);
-	console.log(error);
+	const handleTrack = () => {
+		//algo.
+		console.log('jejejejejeje');
+	};
 
 	return (
 		<Fragment>
@@ -33,7 +36,7 @@ const Catalogue = (props) => {
 				<div className='container_items'>
 					{payload.map((item) => {
 						return (
-							<CatalogueItem key={item.id} {...item} />
+							<CatalogueItem key={item._id} {...item} Onclick={handleTrack} />
 						);
 					})}
 				</div>

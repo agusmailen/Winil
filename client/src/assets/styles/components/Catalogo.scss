@@ -51,6 +51,15 @@ h1 {
 }
 .filter_sections {
 	margin-bottom: 10px;
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.key_filter {
+	display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
 }
 .MuiCheckbox-colorSecondary.Mui-checked {
 	color: #5f5b5c !important;
@@ -63,7 +72,7 @@ h1 {
 	height: .9em !important;
 }
 .MuiFormControlLabel-root {
-	margin-left: -2px !important;
+	margin-left: 3px !important;
 	margin-bottom: 5px;
 }
 .MuiTypography-body1 {
@@ -84,9 +93,13 @@ h1 {
 }
 .MuiButtonBase-root {
 	display: block !important;
+	margin: 5px -2px !important;
 }
 .MuiButton-label {
-	width: 74% !important;
+	width: 97% !important;
+	display: flex !important;
+    align-items: self-end !important;
+    justify-content: start !important;
 }
 .MuiButton-text {
     padding: 3px 10px !important;
@@ -95,4 +108,6 @@ h1 {
 	cursor: not-allowed;
 	pointer-events: auto;
 }
-
+.MuiIconButton-root {
+	padding: 0px !important;
+}

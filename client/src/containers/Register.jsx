@@ -99,7 +99,7 @@ const Register = (props) => {
 						/>
 						{errors.password && errors.password.type === 'required' && <p className='text-error'>Ingrese una contraseña</p>}
 					</div>
-					<Button variant='outlined' type='submit' className='btn btn-primary'>Registrarme</Button>
+					<Button variant='outlined' type='submit' id='register'>Registrarme</Button>
 				</form>
 			</div>
 		</section>
