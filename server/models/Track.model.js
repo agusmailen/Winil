@@ -25,6 +25,10 @@ const trackSchema = new Schema({
 	musicalMood: {
 		type: Array,
 		required: true
+	},
+	background: {
+		type: String,
+		required: true
 	}
 });
 
