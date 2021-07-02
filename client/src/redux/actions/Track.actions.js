@@ -12,3 +12,16 @@ export const listRequest = () => {
 		});
 	};
 };
+
+export const listRequestId = (payload) => {
+	return (dispatch) => {
+		axios.get(`http://localhost:3001/${payload}`)
+		.then((response) => {
+			if (response.data.status !== 200) return dispatch({ type: 'LIST_ID_FAI:ED', error: response.data });
+			dispatch({ type: 'LIST_REQUEST_ID', payload: response.data });
+		})
+		.catch((err) => {
+			dispatch({ type: 'LIST_ID_FAILED', error: err });
+		});
+	};
+};

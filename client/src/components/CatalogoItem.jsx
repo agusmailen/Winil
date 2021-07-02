@@ -1,14 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../assets/styles/components/CatalogoItem.scss';
-import background from '../assets/static/Acoustic_sound_wave_quantum_research.jpg';
 
-const CatalogueItem = () => {
+const CatalogueItem = (props) => {
 	return (
 	<div className='catalogo_item'>
-		<a href='/Player_id' target='_blank'>
-			<img src={background} alt='' />
+		<a href={`/track/${props._id}`}>
+			<img src={props.background} alt='' />
 			<div className='item_description'>
-				<h3>SOY UN TRACK</h3>
+				<h3>{props.title}</h3>
 				<span>Lorem ipsum dolor </span>
 			</div>
 		</a>
@@ -16,4 +16,11 @@ const CatalogueItem = () => {
 	);
 };
 
-export default CatalogueItem;
+const mapSateToProps = (state) => {
+	return {
+		payload: state.track.track_id,
+		error: state.track.error,
+	};
+};
+
+export default connect(mapSateToProps)(CatalogueItem);
