@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
+import AudiotrackRoundedIcon from '@material-ui/icons/AudiotrackRounded';
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import '../assets/styles/components/Player.scss';
 import ReactPlayer from 'react-player';
 import Header from '../components/Header';
@@ -20,28 +23,49 @@ const Player = (props) => {
 	useEffect(() => {
 		props.listRequestId(params.playerId);
 	}, []);
-	console.log(track);
 	return (
 		<Fragment>
 			<Header />
 				<div className='player_container'>
 					<ReactPlayer className='react-player' url={track.source} />
 					<div className='player_description'>
-						<div>
+						<div className='player-title'>
 							<h1>{track.title}</h1>
 							<div>
 								{track.description}
 							</div>
+							<div className='player_items'>
+								<div>
+									<BarChartRoundedIcon />
+									<div>
+										{track.musicalGenre}
+									</div>
+								</div>
+								<div>
+									<AudiotrackRoundedIcon />
+									<div>
+										{track.key}
+									</div>
+								</div>
+								<div>
+									<FavoriteRoundedIcon />
+									<div>
+										{track.musicalMood}
+									</div>
+								</div>
+							</div>
 						</div>
-						<Button
-							variant='contained'
-							color='secondary'
-							className={classes.button}
-							startIcon={<ShoppingCartOutlinedIcon />}
-						>
-							$
-							{ track.cost }
-						</Button>
+						<div className='button-shopping'>
+							<Button
+								variant='contained'
+								color='secondary'
+								className={classes.button}
+								startIcon={<ShoppingCartOutlinedIcon />}
+							>
+								$
+								{ track.cost }
+							</Button>
+						</div>
 					</div>
 				</div>
 		</Fragment>

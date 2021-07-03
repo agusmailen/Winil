@@ -21,7 +21,7 @@ module.exports = {
                 }
             },
             {
-                test:  /\.thml$/,
+                test:  /\.html$/,
                 use: [
                     {
                         loader: 'html-loader'

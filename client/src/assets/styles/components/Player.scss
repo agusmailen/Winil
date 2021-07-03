@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;500;600&display=swap');
 video {
 	border: 1px solid red;
 	source {
@@ -28,19 +28,26 @@ video {
 	flex-direction: column;
 	justify-content: space-between;
 	width: 40%;
-	height: 60%;
+	height: 50%;
 	padding: 10px;
 	align-items: flex-start;
+	font-family: 'Raleway';
 	h1{
 		margin: 0;
 		color: #212121;
 		display: flex;
-		margin-bottom: 15px;
+		//margin-bottom: 15px;
 	}
 	border-bottom: 1.5px solid #212121;
 }
+.player_items{
+	display: flex;
+	div {
+		display: flex;
+		align-items: center;
+		margin: 10px 16px 10px 0px
+	}
+}
 .MuiButton-containedSecondary {
 	background-color: #353233 !important;
-	// align-self: flex-end;
-	// justify-self: flex-end;
 }
