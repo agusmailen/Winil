@@ -2,6 +2,8 @@ const routes = require('express').Router();
 const privateRoute = require('../middlewares/private.route').route;
 const jwt = require('../utils/jwt');
 
+//checkout
+routes.get('/checkout', (req, res) => res.send('<h1>checkout</h1>'));
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();
@@ -18,5 +20,4 @@ routes.post('/track', (Track.create.bind(Track)));
 routes.post('/list', (Track.getAll.bind(Track)));
 routes.get('/:id', (Track.get.bind(Track)));
 module.exports = routes;
-//checkout
 
