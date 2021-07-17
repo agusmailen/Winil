@@ -23,6 +23,7 @@ const Player = (props) => {
 	useEffect(() => {
 		props.listRequestId(params.playerId);
 	}, []);
+	console.log(track.musicalGenre);
 	return (
 		<Fragment>
 			<Header />
@@ -38,7 +39,11 @@ const Player = (props) => {
 								<div>
 									<BarChartRoundedIcon />
 									<div>
-										{track.musicalGenre}
+										{track.musicalGenre?.map((item) => {
+											return (
+												<p1>{item}</p1>
+											);
+										})}
 									</div>
 								</div>
 								<div>
@@ -50,12 +55,16 @@ const Player = (props) => {
 								<div>
 									<FavoriteRoundedIcon />
 									<div>
-										{track.musicalMood}
+										{track.musicalMood?.map((item) => {
+											return (
+												<p1>{item}</p1>
+											);
+										})}
 									</div>
 								</div>
 							</div>
 						</div>
-						<div className='button-shopping'>
+						<div className='button-shopping-contact'>
 							<Button
 								variant='contained'
 								color='secondary'
