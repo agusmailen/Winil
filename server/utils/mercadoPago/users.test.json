@@ -1,0 +1,18 @@
+{
+	"users": [
+		{
+			"id": 793692233,
+			"nickname": "TESTOWP3L0AH",
+			"password": "qatest2683",
+			"site_status": "active",
+			"email": "test_user_86768689@testuser.com"
+		},
+		{
+			"id": 793692367,
+			"nickname": "TETE1687172",
+			"password": "qatest1141",
+			"site_status": "active",
+			"email": "test_user_93769710@testuser.com"
+		}
+	]
+}
