@@ -13,7 +13,6 @@ const Catalogue = (props) => {
 	useEffect(() => {
 		props.listRequest();
 	}, []);
-	console.log(payload);
 
 	return (
 		<Fragment>

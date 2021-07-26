@@ -1,9 +1,9 @@
 const routes = require('express').Router();
 const privateRoute = require('../middlewares/private.route').route;
 const jwt = require('../utils/jwt');
-
+const handleCheckout = require('../middlewares/mercadopago');
 //checkout
-routes.get('/checkout', (req, res) => res.send('<h1>checkout</h1>'));
+routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();

@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/CatalogoItem.scss';
 
 const CatalogueItem = (props) => {
 	return (
 	<div className='catalogo_item'>
-		<a href={`/track/${props._id}`}>
+		<Link to={`/track/${props._id}`}>
 			<img src={props.background} alt='' />
 			<div className='item_description'>
 				<h3>{props.title}</h3>
 				<span>Lorem ipsum dolor </span>
 			</div>
-		</a>
+		</Link>
 	</div>
 	);
 };

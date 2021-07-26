@@ -9,6 +9,7 @@
     }
     h2 a{
         color: white;
+        margin: -12px;
     }
     h2 a::before{
         content: '●';
@@ -36,6 +37,11 @@
     position: fixed;
     width: 92%;
     z-index: 1;
+    margin: 0 auto;
+}
+.header__menu {
+    display: flex;
+    width: 558px;
 }
 .header__menu ul{
     display: flex;
@@ -56,4 +62,7 @@
     li a:hover {
         text-decoration: underline;
     }
+}
+#button-cart-count{
+    color: white !important;
 }

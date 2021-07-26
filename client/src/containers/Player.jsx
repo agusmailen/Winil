@@ -10,6 +10,7 @@ import '../assets/styles/components/Player.scss';
 import ReactPlayer from 'react-player';
 import Header from '../components/Header';
 import { listRequestId } from '../redux/actions/Track.actions';
+import { addItem } from '../redux/actions/Cart.actions';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -19,16 +20,28 @@ const useStyles = makeStyles((theme) => ({
 
 const Player = (props) => {
 	const classes = useStyles();
-	const { match: { params }, track } = props;
+	const { match: { params }, track, cart } = props;
 	useEffect(() => {
 		props.listRequestId(params.playerId);
 	}, []);
-	console.log(track.musicalGenre);
+	const handleAddItem = (track) => {
+		props.addItem(track);
+	};
+
 	return (
 		<Fragment>
-			<Header />
+			<Header count={cart} />
 				<div className='player_container'>
-					<ReactPlayer className='react-player' url={track.source} />
+					<ReactPlayer
+						className='react-player'
+						url={track.source}
+						visibility='hidden'
+						config={{
+							youtube: {
+								playerVars: { showinfo: 1 },
+							},
+						}}
+					/>
 					<div className='player_description'>
 						<div className='player-title'>
 							<h1>{track.title}</h1>
@@ -41,7 +54,7 @@ const Player = (props) => {
 									<div>
 										{track.musicalGenre?.map((item) => {
 											return (
-												<p1>{item}</p1>
+												<span key={item}>{item}</span>
 											);
 										})}
 									</div>
@@ -57,7 +70,7 @@ const Player = (props) => {
 									<div>
 										{track.musicalMood?.map((item) => {
 											return (
-												<p1>{item}</p1>
+												<span key={item}>{item}</span>
 											);
 										})}
 									</div>
@@ -65,7 +78,9 @@ const Player = (props) => {
 							</div>
 						</div>
 						<div className='button-shopping-contact'>
+
 							<Button
+								onClick={() => handleAddItem(track)}
 								variant='contained'
 								color='secondary'
 								className={classes.button}
@@ -83,8 +98,11 @@ const Player = (props) => {
 
 const mapStateToProps = (state) => ({
 	track: state.track.track_id,
+	cart: state.cart.cart_items,
+	cartId: state.cart.cart_id,
 });
 
 export default connect(mapStateToProps, {
 	listRequestId,
+	addItem,
 })(Player);

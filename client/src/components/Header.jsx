@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import '../assets/styles/components/Header.scss';
+
+const StyledBadge = withStyles((theme) => ({
+    badge: {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+}))(Badge);
 
 class Header extends Component {
 
@@ -12,31 +27,35 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        const { location } = this.props;
-        if (location.pathname === '/') {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY >= 30) {
-                    this.setState({ activeClass: 'header__nav_last' });
-                } else {
-                    this.setState({ activeClass: 'header__nav_initial' });
-                }
-            });
+        this.listener = this.handleScroll.bind(this);
+        if (this.props.location.pathname === '/') {
+            window.addEventListener('scroll', this.listener);
         }
-        this.foo();
+        this.setClassName();
     };
 
-    foo = () => {
-        const { location } = this.props;
-        if (location.pathname !== '/') {
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.listener);
+    }
+
+    handleScroll() {
+        if (window.scrollY >= 30) {
+            this.setState({ activeClass: 'header__nav_last' });
+        } else {
+            this.setState({ activeClass: 'header__nav_initial' });
+        }
+    }
+
+    setClassName = () => {
+        if (this.props.location.pathname !== '/') {
             this.setState({ activeClass: 'header__nav_last' });
         }
     };
 
     render() {
-        const { activeClass } = this.state;
         return (
             <div className='header__container_initial'>
-                <nav className={activeClass}>
+                <nav className={this.state.activeClass}>
                     <h2>
                         <Link to='/'>WINIL</Link>
                     </h2>
@@ -50,10 +69,17 @@ class Header extends Component {
                                     <Link to='/Login'>SERVICIOS</Link>
                                 </li>
                                 <li>
-                                    <Link to='/'>TRACKS</Link>
+                                    <Link to='/'>BEATS</Link>
                                 </li>
                                 <li>
                                     <Link to='/'>CONTACTO</Link>
+                                </li>
+                                <li>
+                                    <IconButton aria-label='cart' id='button-cart-count'>
+                                        <StyledBadge badgeContent={this.props.location.pathname === '/' ? this.props.cart?.length : this.props.count?.length}>
+                                            <ShoppingCartIcon />
+                                        </StyledBadge>
+                                    </IconButton>
                                 </li>
                             </ul>
                         </div>
@@ -64,4 +90,10 @@ class Header extends Component {
     }
 }
 
-export default withRouter(Header);
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cart.cart_items,
+    };
+};
+
+export default compose(withRouter, connect(mapStateToProps))(Header);
