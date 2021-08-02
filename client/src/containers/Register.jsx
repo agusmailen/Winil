@@ -1,9 +1,13 @@
+//React
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
+//Material UI
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+//Actions
 import { registerRequest } from '../redux/actions/User.actions';
+//Styles
 import '../assets/styles/components/Register.scss';
 
 const Register = (props) => {

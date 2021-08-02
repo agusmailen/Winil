@@ -1,11 +1,15 @@
+//React
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+//React Redux
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+//Material UI
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+//Styles
 import '../assets/styles/components/Header.scss';
 
 const StyledBadge = withStyles((theme) => ({
@@ -75,11 +79,13 @@ class Header extends Component {
                                     <Link to='/'>CONTACTO</Link>
                                 </li>
                                 <li>
-                                    <IconButton aria-label='cart' id='button-cart-count'>
-                                        <StyledBadge badgeContent={this.props.location.pathname === '/' ? this.props.cart?.length : this.props.count?.length}>
-                                            <ShoppingCartIcon />
-                                        </StyledBadge>
-                                    </IconButton>
+                                    <Link to='/Cart'>
+                                        <IconButton aria-label='cart' id='button-cart-count'>
+                                            <StyledBadge badgeContent={this.props.location.pathname === '/' ? this.props.cart?.length : this.props.count?.length}>
+                                                <ShoppingCartIcon />
+                                            </StyledBadge>
+                                        </IconButton>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

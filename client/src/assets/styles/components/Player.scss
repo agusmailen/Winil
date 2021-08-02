@@ -40,6 +40,9 @@ video {
 		//margin-bottom: 15px;
 	}
 	border-bottom: 1.5px solid #212121;
+	span {
+		margin-right: 10px;
+	}
 }
 .player_items{
 	display: flex;
@@ -54,6 +57,10 @@ video {
 	align-items: center;
 	h3 {
 		display: inline;
+	}
+	p {
+		margin-right: 15px;
+		color: #212121;
 	}
 }
 .MuiButton-containedSecondary {

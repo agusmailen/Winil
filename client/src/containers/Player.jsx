@@ -1,14 +1,22 @@
+// React
 import React, { Fragment, useEffect } from 'react';
+import ReactPlayer from 'react-player/youtube';
+import Cookies from 'universal-cookie';
+//import { useCookies } from 'react-cookie';
+//React-Redux
 import { connect } from 'react-redux';
+//Material UI
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
 import AudiotrackRoundedIcon from '@material-ui/icons/AudiotrackRounded';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
+//Styles
 import '../assets/styles/components/Player.scss';
-import ReactPlayer from 'react-player';
+//Components
 import Header from '../components/Header';
+//Actions
 import { listRequestId } from '../redux/actions/Track.actions';
 import { addItem } from '../redux/actions/Cart.actions';
 
@@ -19,15 +27,19 @@ const useStyles = makeStyles((theme) => ({
 	}));
 
 const Player = (props) => {
+	//const [cookies, setCookie] = useCookies(['user']);
 	const classes = useStyles();
-	const { match: { params }, track, cart } = props;
+	const { match: { params }, track, cart, cartId } = props;
+	const includesId = cartId.includes(track._id);
+	const cookies = new Cookies();
+	cookies.set({ secure: true, sameSite: 'none' });
+	cookies.set({ secure: true, sameSite: 'none' });
 	useEffect(() => {
 		props.listRequestId(params.playerId);
 	}, []);
 	const handleAddItem = (track) => {
 		props.addItem(track);
 	};
-
 	return (
 		<Fragment>
 			<Header count={cart} />
@@ -38,7 +50,7 @@ const Player = (props) => {
 						visibility='hidden'
 						config={{
 							youtube: {
-								playerVars: { showinfo: 1 },
+								playerVars: { 'origin': 'http://localhost:3000/track/:id' },
 							},
 						}}
 					/>
@@ -78,17 +90,26 @@ const Player = (props) => {
 							</div>
 						</div>
 						<div className='button-shopping-contact'>
-
-							<Button
-								onClick={() => handleAddItem(track)}
-								variant='contained'
-								color='secondary'
-								className={classes.button}
-								startIcon={<ShoppingCartOutlinedIcon />}
-							>
-								$
-								{ track.cost }
-							</Button>
+						<p>Accedé al beat completo</p>
+							{
+								includesId ?
+									(
+									<Button variant='contained' disabled>In cart </Button>
+									)
+									:
+									(
+									<Button
+										onClick={() => handleAddItem(track)}
+										variant='contained'
+										color='secondary'
+										className={classes.button}
+										startIcon={<ShoppingCartOutlinedIcon />}
+									>
+										$
+										{ track.cost }
+									</Button>
+									)
+							}
 						</div>
 					</div>
 				</div>

@@ -1,11 +1,16 @@
+//React
 import React, { Fragment, useEffect } from 'react';
+//Redux
 import { connect } from 'react-redux';
-import background from '../assets/static/fondo_hd_169_mesa_mezclas_bn.jpg';
+//Style
 import '../assets/styles/components/Catalogo.scss';
+import background from '../assets/static/fondo_hd_169_mesa_mezclas_bn.jpg';
+//Components
 import Bar from './bar';
 import Key from './KeyFilter';
 import Generos from './GenerosFilter';
 import CatalogueItem from './CatalogoItem';
+//Actions
 import { listRequest } from '../redux/actions/Track.actions';
 
 const Catalogue = (props) => {
