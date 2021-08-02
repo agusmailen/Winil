@@ -2,8 +2,14 @@ const routes = require('express').Router();
 const privateRoute = require('../middlewares/private.route').route;
 const jwt = require('../utils/jwt');
 const handleCheckout = require('../middlewares/mercadopago');
-//checkout
 routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
+routes.get('.youtube.com/', (req, res) => {
+	res.cookie('cookie2', 'value2', { SameSite: 'None', secure: true });
+	res.setHeader('set-cookie', [
+		'cookie1=value1; SameSite=Lax',
+		'cookie2=value2; SameSite=None; Secure',
+	]);
+})
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();
