@@ -22,7 +22,7 @@ const checkout = (req, res, next) => {
 		})
 	})
 	.catch(error => {
-		return res.json({ status:400, error, message:"todo mal" });
+		return res.json({ status:400, error, message: 'todo mal' });
 	});
 };
 

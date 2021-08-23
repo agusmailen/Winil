@@ -1,8 +1,6 @@
 // React
 import React, { Fragment, useEffect } from 'react';
 import ReactPlayer from 'react-player/youtube';
-import Cookies from 'universal-cookie';
-//import { useCookies } from 'react-cookie';
 //React-Redux
 import { connect } from 'react-redux';
 //Material UI
@@ -27,13 +25,9 @@ const useStyles = makeStyles((theme) => ({
 	}));
 
 const Player = (props) => {
-	//const [cookies, setCookie] = useCookies(['user']);
 	const classes = useStyles();
 	const { match: { params }, track, cart, cartId } = props;
 	const includesId = cartId.includes(track._id);
-	const cookies = new Cookies();
-	cookies.set({ secure: true, sameSite: 'none' });
-	cookies.set({ secure: true, sameSite: 'none' });
 	useEffect(() => {
 		props.listRequestId(params.playerId);
 	}, []);

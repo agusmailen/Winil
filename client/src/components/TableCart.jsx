@@ -1,5 +1,5 @@
 //React
-import React from 'react';
+import React, { useState } from 'react';
 //React-Redux
 import { connect } from 'react-redux';
 //Style
@@ -17,17 +17,22 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Header from './TableCartHeader';
 import Toolbar from './ToolbarCart';
 
-function createData(name, calories, fat, carbs, protein) {
-	return { name, calories, fat, carbs, protein };
+function createData(name, duration, cost, _id) {
+	return { name, duration, cost, _id };
 }
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		width: '100%',
+		display: 'flex',
+		justifyContent: 'center',
 	},
 	paper: {
 		width: '70%',
 		marginBottom: theme.spacing(2),
+		backgroundColor: '#F7F7F7',
+		border: 'none',
+		//boxShadow: 'none',
 	},
 	table: {
 		minWidth: 750,
@@ -45,18 +50,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const TableCart = () => {
-	const rows = [
-		createData('Cupcake', 305, 3.7, 67, 4.3),
-		createData('Donut', 452, 25.0, 51, 4.9),
-		createData('Eclair', 262, 16.0, 24, 6.0),
-		createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-	];
+const TableCart = (props) => {
+	const { items } = props;
+	const [selected, setSelected] = useState([]);
+	const rows = items.map((item) => createData(item.title, item.duration, item.cost, item._id));
 	const classes = useStyles();
-	const [selected, setSelected] = React.useState([]);
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
-			const newSelecteds = rows.map((n) => n.name);
+			const newSelecteds = rows.map((n) => n._id);
 			setSelected(newSelecteds);
 			return;
 		}
@@ -80,11 +81,11 @@ const TableCart = () => {
 		setSelected(newSelected);
 	};
 	const isSelected = (name) => selected.indexOf(name) !== -1;
-
+	//let total = 0;
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.paper}>
-				<Toolbar numSelected={selected.length} />
+				<Toolbar numSelected={selected.length} selected={selected} />
 				<TableContainer>
 					<Table
 						className={classes.table}
@@ -99,16 +100,18 @@ const TableCart = () => {
 						/>
 						<TableBody>
 							{rows.map((row, index) => {
-								const isItemSelected = isSelected(row.name);
+								const { name, cost, _id } = row;
+								const isItemSelected = isSelected(_id);
 								const labelId = `enhanced-table-checkbox-${index}`;
+								//total += row.cost;
 								return (
 									<TableRow
 										hover
-										onClick={(event) => handleClick(event, row.name)}
+										onClick={(event) => handleClick(event, _id)}
 										role='checkbox'
 										aria-checked={isItemSelected}
 										tabIndex={-1}
-										key={row.name}
+										key={_id}
 										selected={isItemSelected}
 									>
 										<TableCell padding='checkbox'>
@@ -118,12 +121,10 @@ const TableCart = () => {
 											/>
 										</TableCell>
 										<TableCell component='th' id={labelId} scope='row' padding='none'>
-                        					{row.name}
+                        					{name}
 										</TableCell>
-										<TableCell align='right'>{row.calories}</TableCell>
-										<TableCell align='right'>{row.fat}</TableCell>
-										<TableCell align='right'>{row.carbs}</TableCell>
-										<TableCell align='right'>{row.protein}</TableCell>
+										<TableCell align='right'>{cost}</TableCell>
+										<TableCell align='right'>{cost}</TableCell>
 									</TableRow>
 								);
 							})}

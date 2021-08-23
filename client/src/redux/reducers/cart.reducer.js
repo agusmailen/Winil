@@ -10,7 +10,9 @@ const cartReducer = (state = initialState, action) => {
 			cartItemsId.push(payload._id);
 			return { ...state, cart_items: cartItems, cart_id: cartItemsId };
 		case 'CART_REMOVE_ITEM':
-			return { ...state, cart_items: items, cart_id: id };
+			const newCartItems = [...state.cart_items].filter((item) => !payload.includes(item._id));
+			const newItemsId = [...state.cart_id].filter((item) => !payload.includes(item));
+			return { ...state, cart_items: newCartItems, cart_id: newItemsId };
 		default:
 			return { ...state };
 	}

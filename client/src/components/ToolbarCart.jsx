@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+//React-Redux
+import { connect } from 'react-redux';
 //Material-UI
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -7,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
+//actions
+import { removeItem } from '../redux/actions/Cart.actions';
 
 const useToolbarStyles = makeStyles((theme) => ({
 	root: {
@@ -31,7 +34,13 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const ToolbarCart = (props) => {
 	const classes = useToolbarStyles();
-	const { numSelected } = props;
+	const { numSelected, selected, cartItems } = props;
+
+	const handleRemoveItem = (selected) => {
+		props.removeItem(selected);
+	};
+	useEffect(() => {
+	}, [cartItems]);
 	return (
 		<Toolbar className={clsx(classes.root, {
 			[classes.highlight]: numSelected > 0,
@@ -44,24 +53,26 @@ const ToolbarCart = (props) => {
 				</Typography>
 			) : (
 				<Typography className={classes.title} variant='h6' id='tableTitle' component='div'>
-					Nutrition
+					Carrito
 				</Typography>
 			)}
 			{numSelected > 0 ? (
-				<Tooltip title='Delete'>
+				<Tooltip title='Delete' onClick={() => handleRemoveItem(selected)}>
 					<IconButton aria-label='delete'>
 						<DeleteIcon />
 					</IconButton>
 				</Tooltip>
 			) : (
-				<Tooltip title='Filter list'>
-					<IconButton aria-label='filter list'>
-						<FilterListIcon />
-					</IconButton>
-				</Tooltip>
+				null
 			)}
 		</Toolbar>
 	);
 };
+const mapStateToProps = (state) => ({
+	cartItems: state.cart.cart_items,
+});
+const mapDispatchToProps = {
+	removeItem,
+};
 
-export default ToolbarCart;
+export default connect(mapStateToProps, mapDispatchToProps)(ToolbarCart);
