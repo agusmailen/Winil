@@ -8,11 +8,11 @@ const checkout = (req, res, next) => {
 		access_token: config.token
 	});
 
-	const preference = req.body;
-	console.log(req.body);
+	let preference = {
+		items: req.body.map((item) => { return {title: item.title, unit_price:item.cost, quantity: 1}})
+	}
 
 	mercadopago.preferences.create(preference)
-	
 
 	.then(response => {
 		return res.json({

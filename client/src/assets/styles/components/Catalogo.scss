@@ -87,27 +87,3 @@ h1 {
 		font-size: 1em;
 	}
 }
-.MuiTypography-body1{
-	font-size: .85rem !important;
-    padding: 5px !important
-}
-.MuiButtonBase-root {
-	display: block !important;
-	margin: 5px -2px !important;
-}
-.MuiButton-label {
-	width: 97% !important;
-	display: flex !important;
-    align-items: self-end !important;
-    justify-content: flex-start !important;
-}
-.MuiButton-text {
-    padding: 3px 10px !important;
-}
-.MuiButtonBase-label:disabled {
-	cursor: not-allowed;
-	pointer-events: auto;
-}
-.MuiIconButton-root {
-	padding: 0px !important;
-}

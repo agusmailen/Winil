@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //Components
 import Header from '../components/Header';
 import Table from '../components/TableCart';
+import ButtonMercadoPago from '../components/ButtonMercadoPago';
 
 const Cart = (props) => {
 	const { cart } = props;
@@ -12,8 +13,12 @@ const Cart = (props) => {
 		<>
 			<Header count={cart}></Header>
 			{
-				existItems ?
-					<Table items={cart} />
+				existItems ? (
+					<div>
+						<Table items={cart} />
+						<ButtonMercadoPago items={cart} />
+					</div>
+				)
 				:
 					<h1>No hay productos en el carrito</h1>
 			}

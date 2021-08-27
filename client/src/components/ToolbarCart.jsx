@@ -29,6 +29,8 @@ const useToolbarStyles = makeStyles((theme) => ({
 		},
 	title: {
 		flex: '1 1 100%',
+		color: '#212121',
+		letterSpacing: '4px',
 	},
 }));
 
@@ -49,11 +51,11 @@ const ToolbarCart = (props) => {
 			{numSelected > 0 ? (
 				<Typography className={classes.title} color='inherit' variant='subtitle1' component='div'>
 					{numSelected}
-					selected
+					Seleccionado
 				</Typography>
 			) : (
 				<Typography className={classes.title} variant='h6' id='tableTitle' component='div'>
-					Carrito
+					CARRITO
 				</Typography>
 			)}
 			{numSelected > 0 ? (

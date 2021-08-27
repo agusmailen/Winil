@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 //React-Redux
 import { connect } from 'react-redux';
-//Style
-import '../assets/styles/components/TableCart.scss';
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -28,14 +26,16 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 	},
 	paper: {
-		width: '70%',
+		width: '60%',
 		marginBottom: theme.spacing(2),
 		backgroundColor: '#F7F7F7',
 		border: 'none',
-		//boxShadow: 'none',
+		boxShadow: 'none',
 	},
 	table: {
-		minWidth: 750,
+		minWidth: 'auto',
+		fontFamily: 'Raleway',
+		padding: 0,
 	},
 	visuallyHidden: {
 		border: 0,
@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TableCart = (props) => {
 	const { items } = props;
+	console.log('desde table cart', items);
 	const [selected, setSelected] = useState([]);
 	const rows = items.map((item) => createData(item.title, item.duration, item.cost, item._id));
 	const classes = useStyles();
@@ -105,27 +106,32 @@ const TableCart = (props) => {
 								const labelId = `enhanced-table-checkbox-${index}`;
 								//total += row.cost;
 								return (
-									<TableRow
-										hover
-										onClick={(event) => handleClick(event, _id)}
-										role='checkbox'
-										aria-checked={isItemSelected}
-										tabIndex={-1}
-										key={_id}
-										selected={isItemSelected}
-									>
-										<TableCell padding='checkbox'>
-											<Checkbox
-												checked={isItemSelected}
-												inputProps={{ 'aria-labelledby': labelId }}
-											/>
-										</TableCell>
-										<TableCell component='th' id={labelId} scope='row' padding='none'>
-                        					{name}
-										</TableCell>
-										<TableCell align='right'>{cost}</TableCell>
-										<TableCell align='right'>{cost}</TableCell>
-									</TableRow>
+									<>
+										<TableRow
+											hover
+											onClick={(event) => handleClick(event, _id)}
+											role='checkbox'
+											aria-checked={isItemSelected}
+											tabIndex={-1}
+											key={_id}
+											selected={isItemSelected}
+										>
+											<TableCell padding='checkbox'>
+												<Checkbox
+													checked={isItemSelected}
+													inputProps={{ 'aria-labelledby': labelId }}
+												/>
+											</TableCell>
+											<TableCell component='th' id={labelId} scope='row' padding='none' width='100px'>
+												{name}
+											</TableCell>
+											<TableCell align='right' width='90px'>{cost}</TableCell>
+											<TableCell align='right' width='90px'>
+												$
+												{cost}
+											</TableCell>
+										</TableRow>
+									</>
 								);
 							})}
 						</TableBody>
