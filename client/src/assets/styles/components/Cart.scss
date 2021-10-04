@@ -1,0 +1,30 @@
+.empty-cart-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	top: -90px;
+}
+.empty-cart-image{
+	width: 400px;
+	height: 300px;
+}
+.empty-cart-description{
+	margin: 0;
+	align-self: end;
+	font-family: 'Raleway';
+	color: #322D35;
+	display: inline;
+	margin-left: 10px;
+}
+.empty-cart-description--container{
+	display: flex;
+}
+#button-empty-cart, #iconArrow-empty-cart{
+	color: #322D35;
+	font-size: 2.5rem !important;
+	margin: 0;
+	padding: 0;
+
+}

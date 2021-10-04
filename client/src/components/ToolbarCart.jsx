@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 //React-Redux
 import { connect } from 'react-redux';
 //Material-UI
@@ -11,6 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 //actions
 import { removeItem } from '../redux/actions/Cart.actions';
+//Styles
+import '../assets/styles/components/TableCart.scss';
 
 const useToolbarStyles = makeStyles((theme) => ({
 	root: {
@@ -36,13 +38,11 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const ToolbarCart = (props) => {
 	const classes = useToolbarStyles();
-	const { numSelected, selected, cartItems } = props;
+	const { numSelected, selected } = props;
 
 	const handleRemoveItem = (selected) => {
 		props.removeItem(selected);
 	};
-	useEffect(() => {
-	}, [cartItems]);
 	return (
 		<Toolbar className={clsx(classes.root, {
 			[classes.highlight]: numSelected > 0,
@@ -51,7 +51,7 @@ const ToolbarCart = (props) => {
 			{numSelected > 0 ? (
 				<Typography className={classes.title} color='inherit' variant='subtitle1' component='div'>
 					{numSelected}
-					Seleccionado
+					seleccionado
 				</Typography>
 			) : (
 				<Typography className={classes.title} variant='h6' id='tableTitle' component='div'>

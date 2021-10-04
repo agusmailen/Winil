@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import Header from '../components/Header';
 import Catalogue from '../components/Catalogo';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 //Style
 import '../assets/styles/App.scss';
 
@@ -14,6 +15,7 @@ const Home = () => {
 			<Catalogue>
 			</Catalogue>
 			<Contact />
+			<Footer />
 		</Fragment>
 	);
 };

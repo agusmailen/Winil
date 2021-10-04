@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 import '../assets/styles/components/Catalogo.scss';
 import background from '../assets/static/fondo_hd_169_mesa_mezclas_bn.jpg';
 //Components
-import Bar from './bar';
-import Key from './KeyFilter';
-import Generos from './GenerosFilter';
 import CatalogueItem from './CatalogoItem';
 //Actions
 import { listRequest } from '../redux/actions/Track.actions';
@@ -24,12 +21,8 @@ const Catalogue = (props) => {
 			<div className='background_container'>
 				<img src={background} alt='' />
 			</div>
-			<div className='catalogue_container'>
+			<div className='catalogue_container' id='catalogo-id'>
 				<div className='filter_container'>
-					<Generos></Generos>
-					<h5>Filtrar por:</h5>
-					<Key></Key>
-					<Bar></Bar>
 				</div>
 				<div className='container_items'>
 					{payload.map((item) => {

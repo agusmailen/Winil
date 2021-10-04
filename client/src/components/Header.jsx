@@ -1,9 +1,11 @@
 //React
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link as Link1, withRouter } from 'react-router-dom';
 //React Redux
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+//React Scroll
+import { Link as Link2 } from 'react-scroll';
 //Material UI
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -61,31 +63,31 @@ class Header extends Component {
             <div className='header__container_initial'>
                 <nav className={this.state.activeClass}>
                     <h2>
-                        <Link to='/'>WINIL</Link>
+                        <Link1 to='/'>WINIL</Link1>
                     </h2>
                     <div className='header__menu'>
                         <div className='header__menu--ul'>
                             <ul>
                                 <li>
-                                    <Link to='/Login'>INICIAR SESION</Link>
+                                    <Link1 to='/Login'>INICIAR SESION</Link1>
                                 </li>
                                 <li>
-                                    <Link to='/Login'>SERVICIOS</Link>
+				                    <Link2 to='/Login'>SERVICIOS</Link2>
                                 </li>
                                 <li>
-                                    <Link to='/'>BEATS</Link>
+                                    {this.props.location.pathname === '/' ? <Link2 to='catalogo-id' smooth={true} duration={1000}>BEATS</Link2> : <Link1 to='/'>BEATS</Link1>}
                                 </li>
                                 <li>
-                                    <Link to='/'>CONTACTO</Link>
+                                    <Link2 to='contact_id' smooth={true} duration={1000}>CONTACTO</Link2>
                                 </li>
                                 <li>
-                                    <Link to='/Cart'>
+                                    <Link1 to='/Cart'>
                                         <IconButton aria-label='cart' id='button-cart-count'>
                                             <StyledBadge badgeContent={this.props.location.pathname === '/' ? this.props.cart?.length : this.props.count?.length}>
                                                 <ShoppingCartIcon />
                                             </StyledBadge>
                                         </IconButton>
-                                    </Link>
+                                    </Link1>
                                 </li>
                             </ul>
                         </div>

@@ -5,7 +5,7 @@ import icon from '../assets/static/icons8-whatsapp-160.png';
 class Contact extends Component {
 	render() {
 		return (
-			<div className='contact__container'>
+			<div className='contact__container' id='contact_id'>
 				<div className='contact__container--form'>
 					<p className='form-title'>SENTITE LIBRE DE CONSULTAR O COMENZAR A HABLAR SOBRE TU PROXIMO PROYECTO MUSICAL.</p>
 					<div className='form__container'>

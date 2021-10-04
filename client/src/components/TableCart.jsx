@@ -14,6 +14,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 //Components
 import Header from './TableCartHeader';
 import Toolbar from './ToolbarCart';
+import ButtonMercadoPago from './ButtonMercadoPago';
+//Styles
+import '../assets/styles/components/TableCart.scss';
 
 function createData(name, duration, cost, _id) {
 	return { name, duration, cost, _id };
@@ -24,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 		display: 'flex',
 		justifyContent: 'center',
+		flexDirection: 'column',
+		alignItems: 'center',
 	},
 	paper: {
 		width: '60%',
@@ -52,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
 
 const TableCart = (props) => {
 	const { items } = props;
-	console.log('desde table cart', items);
 	const [selected, setSelected] = useState([]);
 	const rows = items.map((item) => createData(item.title, item.duration, item.cost, item._id));
 	const classes = useStyles();
@@ -69,6 +73,7 @@ const TableCart = (props) => {
 		let newSelected = [];
 		if (selectedIndex === -1) {
 			newSelected = newSelected.concat(selected, name);
+			console.log('jeje');
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
@@ -82,9 +87,9 @@ const TableCart = (props) => {
 		setSelected(newSelected);
 	};
 	const isSelected = (name) => selected.indexOf(name) !== -1;
-	//let total = 0;
+	let total = 0;
 	return (
-		<div className={classes.root}>
+		<div className={classes.root} id='table_id'>
 			<Paper className={classes.paper}>
 				<Toolbar numSelected={selected.length} selected={selected} />
 				<TableContainer>
@@ -104,16 +109,15 @@ const TableCart = (props) => {
 								const { name, cost, _id } = row;
 								const isItemSelected = isSelected(_id);
 								const labelId = `enhanced-table-checkbox-${index}`;
-								//total += row.cost;
+								total += row.cost;
 								return (
-									<>
+									<React.Fragment key={_id}>
 										<TableRow
 											hover
 											onClick={(event) => handleClick(event, _id)}
 											role='checkbox'
 											aria-checked={isItemSelected}
 											tabIndex={-1}
-											key={_id}
 											selected={isItemSelected}
 										>
 											<TableCell padding='checkbox'>
@@ -131,13 +135,22 @@ const TableCart = (props) => {
 												{cost}
 											</TableCell>
 										</TableRow>
-									</>
+									</React.Fragment>
 								);
 							})}
 						</TableBody>
 					</Table>
 				</TableContainer>
 			</Paper>
+			<div className='tableCart-total-button'>
+				<h3>
+					TOTAL:
+
+					$
+					{total}
+				</h3>
+				<ButtonMercadoPago items={items} id='button-mercadoPago' />
+			</div>
 		</div>
 	);
 };

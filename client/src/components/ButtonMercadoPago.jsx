@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 const ButtonMercadoPago = (props) => {
@@ -12,9 +12,7 @@ const ButtonMercadoPago = (props) => {
 	};
 
 	return (
-		<Button onClick={() => handleCheckout(items)}>
-			Ir a checkout
-		</Button>
+		<Button variant='contained' onClick={() => handleCheckout(items)}>IR A CHECKOUT</Button>
 	);
 };
 
