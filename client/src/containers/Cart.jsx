@@ -8,7 +8,6 @@ import IconButton from '@mui/material/IconButton';
 //Components
 import Header from '../components/Header';
 import Table from '../components/TableCart';
-//import Footer from '../components/Footer';
 //Style
 import '../assets/styles/components/Cart.scss';
 //assets

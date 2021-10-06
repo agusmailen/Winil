@@ -60,7 +60,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='header__container_initial'>
+            <div className='header__container_initial' id='header'>
                 <nav className={this.state.activeClass}>
                     <h2>
                         <Link1 to='/'>WINIL</Link1>

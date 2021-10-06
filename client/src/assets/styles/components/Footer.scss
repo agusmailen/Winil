@@ -1,8 +1,30 @@
 .footer-container {
-	//border: solid 1px red;
-	height: 100px;
+	display: flex;
+	flex-direction: column;
 	background-color: #dbd8d8;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 	h3{
 		margin: 0;
 	}
+}
+#button-arrow-footer{
+	position: absolute;
+	bottom: 150px;
+	justify-self: center;
+	align-self: center;
+}
+.icons-socialMedia-footer{	
+	position: absolute;
+	bottom: 90px;
+	display:flex;
+	justify-self: center;
+	align-self: center;
+	left: 48%;
+	right: 50%;
+}
+#icon-footer{
+	font-size: 2.5rem !important;
+	margin: 5px;
 }
