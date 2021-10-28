@@ -4,6 +4,10 @@ const jwt = require('../utils/jwt');
 const handleCheckout = require('../middlewares/mercadopago');
 //MercadoPago
 routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
+//Filters
+const FilterController = require('../controller/Filters.controller');
+const Filter = new FilterController();
+routes.get('/filters', (Filter.getFilters.bind(Filter)));
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();
@@ -19,5 +23,6 @@ const Track = new TrackController();
 routes.post('/track', (Track.create.bind(Track)));
 routes.post('/list', (Track.getAll.bind(Track)));
 routes.get('/:id', (Track.get.bind(Track)));
+
 module.exports = routes;
 

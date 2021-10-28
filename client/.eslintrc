@@ -215,6 +215,7 @@
       "import/prefer-default-export": 0,
       "react/destructuring-assignment": 0,
       "no-case-declarations": 0,
-      "Trailing spaces not allowed": "off"
+      "Trailing spaces not allowed": "off",
+      "class-methods-use-this": "off"
     }    
 }

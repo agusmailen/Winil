@@ -8,22 +8,32 @@ import '../assets/styles/components/Footer.scss';
 //Meterial
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import IconButton from '@mui/material/IconButton';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
+//import YouTubeIcon from '@mui/icons-material/YouTube';
+//import InstagramIcon from '@mui/icons-material/Instagram';
 import image from '../assets/static/tecladito.png';
 
 const Footer = () => {
 	return (
 		<footer className='footer-container'>
 			<img src={image} alt='' />
-			<Link2 to='header' smooth={true} duration={900}>
-				<IconButton aria-label='delete' size='large' id='button-arrow-footer'>
+			<Link2 id='button-arrow-footer' smooth={true} duration={1000} to='header'>
+				<IconButton aria-label='delete' size='large' id='button-arrow-footer' className='parpadea'>
 					<ArrowUpwardIcon size='large' id='iconArrow-empty-cart' />
 				</IconButton>
 			</Link2>
 			<div className='icons-socialMedia-footer'>
-				<YouTubeIcon id='icon-footer' />
-				<InstagramIcon id='icon-footer' />
+				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+					<img src='https://img.icons8.com/ios/50/000000/youtube-play--v1.png' alt='' id='footer-icon-social' />
+				</a>
+				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+					<img src='https://img.icons8.com/fluency-systems-regular/48/000000/b.png' alt='' id='footer-icon-social' />
+				</a>
+				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+					<img src='https://img.icons8.com/ios/50/000000/soundcloud.png' alt='' id='footer-icon-social' />
+				</a>
+				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+					<img src='https://img.icons8.com/ios/50/000000/instagram-new.png' alt='' id='footer-icon-social' />
+				</a>
 			</div>
 		</footer>
 	);

@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 import '../assets/styles/components/CatalogoItem.scss';
 
 const CatalogueItem = (props) => {
+	const { background, _id, title } = props;
 	return (
 	<div className='catalogo_item'>
-		<Link to={`/track/${props._id}`}>
-			<img src={props.background} alt='' />
+		<Link to={`/track/${_id}`}>
+			<img src={background} alt='' />
 			<div className='item_description'>
-				<h3>{props.title}</h3>
+				<h3>{title}</h3>
 				<span>Lorem ipsum dolor </span>
 			</div>
 		</Link>
