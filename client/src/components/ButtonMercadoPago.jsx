@@ -1,14 +1,20 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import isAuth from '../utils/isAuth';
 
-const ButtonMercadoPago = (props) => {
-
-	const { items } = props;
+const ButtonMercadoPago = ({ items, history }) => {
 
 	const handleCheckout = async (item) => {
 		const response = await axios.post('http://localhost:3001/checkout', item);
-		window.location.href = response.data.payload.body.init_point;
+		isAuth() ?
+			window.location.href = response.data.payload.body.init_point
+		:
+			history.push({
+				pathname: '/Login',
+				customNameData: items,
+			});
 	};
 
 	return (
@@ -16,4 +22,4 @@ const ButtonMercadoPago = (props) => {
 	);
 };
 
-export default ButtonMercadoPago;
+export default withRouter(ButtonMercadoPago);

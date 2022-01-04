@@ -4,7 +4,7 @@ const Filter = new FilterService();
 
 class FilterController {
 
-	getDropdown(payload, componentProps) {
+	getCheckbox(payload, componentProps) {
 		return {
 			type: 'checbox',
 			data: {
@@ -16,13 +16,12 @@ class FilterController {
 
 	async getFilters(req, res) {
 		const filtersByGenre = await Filter.getTracksByGenre().then(res => {return res})
-		const generos = this.getDropdown(filtersByGenre, { label: 'generos' })
+		const generos = this.getCheckbox(filtersByGenre, { label: 'generos' })
 		
 		return res.json({
 			components: [generos]
 		})
 	}
-
 }
 
 module.exports = FilterController;

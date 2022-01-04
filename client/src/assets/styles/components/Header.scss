@@ -7,16 +7,19 @@
     h2 {
         letter-spacing: 5px;
     }
-    h2 a{
+
+    h2 a {
         color: white;
         margin: -12px;
     }
+
     h2 a::before{
         content: '●';
     }
     position: relative;
     z-index: 2;
 }
+
 .header__nav_initial {
     transition: all 0.9s ease;
     background-color: transparent;
@@ -26,6 +29,7 @@
     height: 140px;
     padding: 0px 60px;
 }
+
 .header__nav_last{
     transition: all 0.9s ease;
     background-color: #212121;
@@ -39,18 +43,22 @@
     z-index: 1;
     margin: 0 auto;
 }
+
 .header__menu {
     display: flex;
     width: 558px;
 }
+
 .header__menu ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     li {
         list-style: none;
         margin-left: 24px;
     }
+
     li a {
         color:white;
         cursor: pointer;
@@ -59,10 +67,12 @@
         font-size: large;
         font-size: .8em;
     }
+    
     li a:hover {
         text-decoration: underline;
     }
 }
+
 #button-cart-count{
     color: white !important;
 }

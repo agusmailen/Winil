@@ -6,7 +6,11 @@ const Contact = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(event.target.name.value);
+		const message = {
+			name: event.target.name.value,
+			text: event.target.text.value,
+		};
+		console.log(message);
 	};
 
 	return (
@@ -41,12 +45,12 @@ const Contact = () => {
 							/>
 						</div>
 						<textarea
-							name=''
 							id=''
 							cols='45'
 							rows='10'
 							placeholder='Mensaje'
 							className='contact-textArea'
+							name='text'
 						/>
 						<button className='contact-button' type='submit'>ENVIAR</button>
 					</form>

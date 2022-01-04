@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 //Style
 import '../assets/styles/components/CatalogoItem.scss';
 
-const CatalogueItem = (props) => {
-	const { background, _id, title } = props;
+const CatalogueItem = ({ background, _id, title }) => {
 	return (
 	<div className='catalogo_item'>
 		<Link to={`/track/${_id}`}>

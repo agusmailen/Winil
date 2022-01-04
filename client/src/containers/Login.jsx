@@ -13,15 +13,16 @@ import { loginRequest } from '../redux/actions/User.actions';
 import '../assets/styles/components/Login.scss';
 
 const Login = (props) => {
-	const {
-		userData,
-		error,
-	} = props;
-
+	const { userData, error } = props;
 	useEffect(() => {
 		if (userData && userData.payload) {
 			localStorage.setItem('token', userData.payload);
-			props.history.push('/user/profile');
+			if (props.location.customNameData) {
+				console.log('entro aca');
+				props.history.push('/Cart');
+			} else {
+				props.history.push('/user/profile');
+			}
 		}
 	}, [userData, error]);
 

@@ -55,8 +55,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const TableCart = (props) => {
-	const { items } = props;
+const TableCart = ({ items }) => {
 	const [selected, setSelected] = useState([]);
 	const rows = items.map((item) => createData(item.title, item.duration, item.cost, item._id));
 	const classes = useStyles();
@@ -73,15 +72,14 @@ const TableCart = (props) => {
 		let newSelected = [];
 		if (selectedIndex === -1) {
 			newSelected = newSelected.concat(selected, name);
-			console.log('jeje');
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
 			newSelected = newSelected.concat(selected.slice(0, -1));
 		} else if (selectedIndex > 0) {
 			newSelected = newSelected.concat(
-			selected.slice(0, selectedIndex),
-			selected.slice(selectedIndex + 1),
+				selected.slice(0, selectedIndex),
+				selected.slice(selectedIndex + 1),
 			);
 		}
 		setSelected(newSelected);

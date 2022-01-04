@@ -20,6 +20,7 @@ const isAuth = () => {
 	if (jwt && isAuthOk(jwt)) {
 		return true;
 	};
+	return false;
 };
 
 export default isAuth;
