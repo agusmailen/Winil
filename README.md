@@ -2,7 +2,7 @@
 
 Página web dedicada a promocionar y vender servicios y productos como productor musical. 
 
-A atravez de esta página se puede:
+A través de esta página se puede:
 
 - Listar los beats en un catálogo con la informacion de cada uno (género, BPM, mood).
 - Comercializar los beats utilizando Mercado Pago.
