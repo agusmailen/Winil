@@ -17,12 +17,7 @@ const Login = (props) => {
 	useEffect(() => {
 		if (userData && userData.payload) {
 			localStorage.setItem('token', userData.payload);
-			if (props.location.customNameData) {
-				console.log('entro aca');
-				props.history.push('/Cart');
-			} else {
-				props.history.push('/user/profile');
-			}
+			props.location.customNameData ? props.history.push('/Cart') : props.history.push('/user/profile');
 		}
 	}, [userData, error]);
 

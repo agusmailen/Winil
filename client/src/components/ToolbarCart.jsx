@@ -44,7 +44,7 @@ const ToolbarCart = (props) => {
 		props.removeItem(selected);
 	};
 	return (
-		<Toolbar className={clsx(classes.root, {
+		<Toolbar id='toolbar' className={clsx(classes.root, {
 			[classes.highlight]: numSelected > 0,
 		})}
 		>

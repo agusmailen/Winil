@@ -22,16 +22,16 @@ const Footer = () => {
 				</IconButton>
 			</Link2>
 			<div className='icons-socialMedia-footer'>
-				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+				<a href='https://www.youtube.com/channel/UCZeyIcPMFOXsizEwVtA1Z8g' target='_blank' rel='noopener noreferrer'>
 					<img src='https://img.icons8.com/ios/50/000000/youtube-play--v1.png' alt='' id='footer-icon-social' />
 				</a>
-				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+				<a href='https://www.beatstars.com/pimpcrimson/feed' target='_blank' rel='noopener noreferrer'>
 					<img src='https://img.icons8.com/fluency-systems-regular/48/000000/b.png' alt='' id='footer-icon-social' />
 				</a>
-				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+				<a href='https://soundcloud.com/pimpcrimson' target='_blank' rel='noopener noreferrer'>
 					<img src='https://img.icons8.com/ios/50/000000/soundcloud.png' alt='' id='footer-icon-social' />
 				</a>
-				<a href='https://www.beatstars.com/sugav/feed' target='_blank' rel='noopener noreferrer'>
+				<a href='https://www.instagram.com/pimpcrimson/' target='_blank' rel='noopener noreferrer'>
 					<img src='https://img.icons8.com/ios/50/000000/instagram-new.png' alt='' id='footer-icon-social' />
 				</a>
 			</div>

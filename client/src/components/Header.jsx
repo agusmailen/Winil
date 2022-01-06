@@ -69,9 +69,6 @@ class Header extends Component {
                         <div className='header__menu--ul'>
                             <ul>
                                 <li>
-                                    <Link1 to='/Login'>INICIAR SESION</Link1>
-                                </li>
-                                <li>
 				                    <Link2 to='/Login'>SERVICIOS</Link2>
                                 </li>
                                 <li>
@@ -79,6 +76,9 @@ class Header extends Component {
                                 </li>
                                 <li>
                                     <Link2 to='contact_id' smooth={true} duration={1000}>CONTACTO</Link2>
+                                </li>
+                                <li>
+                                    <Link1 to='/Login'>INICIAR SESION</Link1>
                                 </li>
                                 <li>
                                     <Link1 to='/Cart'>
