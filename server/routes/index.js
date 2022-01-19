@@ -2,6 +2,9 @@ const routes = require('express').Router();
 const privateRoute = require('../middlewares/private.route').route;
 const jwt = require('../utils/jwt');
 const handleCheckout = require('../middlewares/mercadopago');
+const sendMail = require('../middlewares/nodemailer');
+//Emails-Contact
+routes.post('/sendEmail', (req, res) => sendMail(req, res));
 //MercadoPago
 routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
 //Filters

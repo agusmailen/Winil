@@ -17,7 +17,7 @@ const Login = (props) => {
 	useEffect(() => {
 		if (userData && userData.payload) {
 			localStorage.setItem('token', userData.payload);
-			props.location.customNameData ? props.history.push('/Cart') : props.history.push('/user/profile');
+			props.location.customNameData ? props.history.push('/Cart') : props.history.push('/');
 		}
 	}, [userData, error]);
 
@@ -52,9 +52,9 @@ const Login = (props) => {
 						{errors.password && errors.password.type === 'required' && <p className='text-error'>Ingrese su contraseña</p>}
 					</div>
 					<Button variant='outlined' type='submit' id='register'>Iniciar Sesión</Button>
-					<div className='login__container--recoverPass'>
+					{/* <div className='login__container--recoverPass'>
 						<Link to='/'>Olvidé mi contraseña</Link>
-					</div>
+					</div> */}
 				</form>
 				<p className='login__container--register'>
 					No tienes cuenta?

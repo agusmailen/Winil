@@ -1,16 +1,35 @@
 import React from 'react';
+import axios from 'axios';
+import swal from 'sweetalert';
 import '../assets/styles/components/Contact.scss';
 import icon from '../assets/static/icons8-whatsapp-160.png';
 
 const Contact = () => {
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const message = {
 			name: event.target.name.value,
+			artist: event.target.artist.value,
+			phone: event.target.phone.value,
+			email: event.target.email.value,
 			text: event.target.text.value,
 		};
-		console.log(message);
+		const response = await axios.post('http://localhost:3001/sendEmail', message);
+		if (response.status === 200) {
+			swal({
+				title: 'Mensaje enviado!',
+				text: 'Pronto nos pondremos en contacto',
+				icon: 'success',
+			});
+		} else {
+			swal({
+				title: 'Algo salio mal',
+				text: 'Intenta más tarde por favor!',
+				icon: 'failed',
+			});
+
+		}
 	};
 
 	return (
@@ -30,6 +49,7 @@ const Contact = () => {
 								type='text'
 								placeholder='Artista/Banda'
 								className='contact-input'
+								name='artist'
 							/>
 						</div>
 						<div>
@@ -37,11 +57,13 @@ const Contact = () => {
 								type='text'
 								placeholder='Teléfono'
 								className='contact-input'
+								name='phone'
 							/>
 							<input
 								type='email'
 								placeholder='E-mail'
 								className='contact-input'
+								name='email'
 							/>
 						</div>
 						<textarea

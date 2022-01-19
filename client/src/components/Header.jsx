@@ -13,6 +13,8 @@ import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 //Styles
 import '../assets/styles/components/Header.scss';
+//utils
+import isAuth from '../utils/isAuth';
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -58,6 +60,11 @@ class Header extends Component {
         }
     };
 
+    handleSesion = () => {
+        localStorage.clear();
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div className='header__container_initial' id='header'>
@@ -77,9 +84,19 @@ class Header extends Component {
                                 <li>
                                     <Link2 to='contact_id' smooth={true} duration={1000}>CONTACTO</Link2>
                                 </li>
-                                <li>
-                                    <Link1 to='/Login'>INICIAR SESION</Link1>
-                                </li>
+                                { isAuth() ?
+                                (
+                                    <li onClick={this.handleSesion}>
+                                        CERRAR SESION
+                                    </li>
+
+                                )
+                                :
+                                (
+                                    <li>
+                                        <Link1 to='/Login'>INICIAR SESION</Link1>
+                                    </li>
+                                )}
                                 <li>
                                     <Link1 to='/Cart'>
                                         <IconButton aria-label='cart' id='button-cart-count'>

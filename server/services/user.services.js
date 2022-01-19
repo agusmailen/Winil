@@ -28,7 +28,7 @@ class UserService {
 		let { email, password } = payload;
 		const user = await UserModel.findOne({ email: payload.email }).exec();
 		if (!user) return false;
-		payload = { email, password};
+		payload = { email, password };
 		const verifyPassword = jwt.decoded(user.password).data;
 		if (payload.email !== user.email || payload.password !== verifyPassword) return false;
 		return jwt.token(user);

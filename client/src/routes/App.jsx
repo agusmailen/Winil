@@ -4,7 +4,7 @@ import Home from '../containers/Home';
 import Login from '../containers/Login';
 import PrivateRoute from '../containers/PrivateRoute';
 import Register from '../containers/Register';
-import Profile from '../containers/Profile';
+//import Profile from '../containers/Profile';
 import Player from '../containers/Player';
 import Cart from '../containers/Cart';
 
@@ -16,7 +16,7 @@ const App = () => (
           <Route exact path='/Register' component={Register} />
           <Route exact path='/track/:playerId' component={Player} />
           <Route exact path='/Cart' component={Cart} />
-          <PrivateRoute exact path='/user/profile' component={Profile} />
+          <PrivateRoute exact path='/' component={Home} />
       </Switch>
   </BrowserRouter>
 );
