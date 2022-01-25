@@ -28,7 +28,7 @@ const trackSchema = new Schema({
 	},
 	background: {
 		type: String,
-		required: true
+		required: false
 	}
 });
 

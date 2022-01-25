@@ -9,7 +9,7 @@ class TrackService {
 		payload = { title, description, source, cost, musicalGenre, musicalMood };
 		if (!payload.title || !payload.description || !payload.source || !payload.cost || !payload.musicalGenre || !payload.musicalMood) return false;
 		const track = await new TrackModel(payload);
-		track.save();
+		await track.save();
 		return track;
 	}
 

@@ -35,7 +35,7 @@ const Contact = () => {
 	return (
 		<div className='contact__container' id='contact_id'>
 			<div className='contact__container--form'>
-				<p className='form-title'>SENTITE LIBRE DE CONSULTAR O COMENZAR A HABLAR SOBRE TU PROXIMO PROYECTO MUSICAL.</p>
+				<p className='form-title'>SENTITE LIBRE DE CONSULTAR O COMENZAR A HABLAR SOBRE TU PROXIMO PROYECTO MUSICAL!</p>
 				<div className='form__container'>
 					<form className='contact--form--inputs' onSubmit={handleSubmit}>
 						<div>
@@ -90,12 +90,12 @@ const Contact = () => {
 							<h5>E-MAIL</h5>
 							<p>pimpcrimson.mix@gmail.com</p>
 						</div>
+						<div className='icon-wps'>
+							<a href='https://api.whatsapp.com/send?phone=541138742304&text=Envia%20un%20mensaje!' target='_blank' rel='noreferrer'>
+								<img src={icon} alt='' className='icon-wps-image' />
+							</a>
+						</div>
 					</div>
-				</div>
-				<div className='icon-wps'>
-					<a href='https://api.whatsapp.com/send?phone=541138742304&text=Envia%20un%20mensaje!' target='_blank' rel='noreferrer'>
-						<img src={icon} alt='' className='icon-wps-image' />
-					</a>
 				</div>
 			</div>
 		</div>

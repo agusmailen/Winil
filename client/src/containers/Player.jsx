@@ -58,11 +58,12 @@ const Player = (props) => {
 								<div>
 									<BarChartRoundedIcon />
 									<div>
-										{track.musicalGenre?.map((item) => {
+									{track.musicalGenre?.join(' ◦ ')}
+										{/* {track.musicalGenre?.map((item) => {
 											return (
 												<span key={item}>{item}</span>
 											);
-										})}
+										})} */}
 									</div>
 								</div>
 								<div>
@@ -74,11 +75,12 @@ const Player = (props) => {
 								<div>
 									<FavoriteRoundedIcon />
 									<div>
-										{track.musicalMood?.map((item) => {
+										{track.musicalMood?.join(' ◦ ')}
+										{/* {track.musicalMood?.map((item) => {
 											return (
 												<span key={item}>{item}</span>
 											);
-										})}
+										})} */}
 									</div>
 								</div>
 							</div>

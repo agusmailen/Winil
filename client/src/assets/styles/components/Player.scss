@@ -11,7 +11,7 @@ video {
     // border: 1px solid red;
     display: flex;
     background-color: #c4c1c1;
-    height: 86%;
+    height: calc(100% - 90px);
     position: absolute;
     top: 90px;
 	align-items: center;

@@ -1,72 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
 .contact__container {
-	min-height: 100vh;
+	width: 100%;
+	min-height: 80vh;
 	display: flex;
 	align-items: center;
 	background-color: #111111
 }
-.form-title{
-	font-family: 'Oswald', sans-serif;
-	font-size: 24px;
-	padding: 20px;
-}
 .contact__container--form {
 	width: 50%;
-	min-height: 100vh;
+	min-height: 80vh;
 	display: flex;
     flex-direction: column;
     align-items: center;
-	padding: 50px 0px 0px 0px;
 	background-image: url(https://img.freepik.com/foto-gratis/pared-insonorizada-estudio-sonido-fondo-esponja-absorbente-sonido_38816-269.jpg?size=626&ext=jpg&ga=GA1.2.1173097843.1604016000);
 	background-repeat: no-repeat;
 	background-size: cover;
-	.form-title {
-		align-self: flex-start;
-		justify-self: start;
-		margin: 0;
-		padding: 20px 100px;
-		color: beige;
-		margin-top: 20px;
-		margin-left: 40px;
-		letter-spacing: 2px;
-		line-height: 1.5em;
-		font-size: 23px;
-	}
+}
+.form-title {
+	margin: 120px auto 30px auto;
+	width: 75%;
+	font-size: 1.5rem;
+	font-family: 'Oswald', sans-serif;
+	line-height: 1.5em;
+	letter-spacing: 2px;
+	color: beige;
 }
 .contact--form--inputs {
 	display: flex;
 	flex-direction: column;
-	width: auto;
-	height: auto;
 	div {
 		display: flex;
 	}
 }
 .contact__container--media {
-	// border: 1px solid red;
-	width: 50%;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
+	//border: 1px solid red;
+	margin: 0 auto;
+	width: 40%;
+	// min-height: 80vh;
+	// display: flex;
+	// flex-direction: column;
 }
 .contact__container--media--data {
-	// border: 1px solid red;
-	height: 300px;
-	margin: 63px 0px 0px 120px;
-	height: 400px;
+	//border: 1px solid red;
+	width: 75%;
+	margin: 0 auto;
+	// margin: 63px 0px 0px 120px;
+	// height: 400px;
 }
 .contact-input {
 	outline: none;
-	padding: 16px 7px;
-	width: 180px;
+	padding: 3%;
+	width: 50%;
 	margin: 5px;
 }
 .contact-textArea {
 	outline: none;
 	margin: 5px;
-	width: 372px;
+	width: 92%;
 	padding: 12px 8px;
+	margin-bottom: 5%;
 }
 .contact-input::placeholder,
 .contact-textArea::placeholder {
@@ -76,13 +69,15 @@
 	font-weight: 300;
 }
 .form__container{
-	// border: 1px solid red;
-	width: 400px;
+	width: 50%;
+	height: 40%;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 10%;
 }
 .contact-button{
 	align-self: flex-end;
+	justify-self: flex-end;
 	background-color: #AB47BC;
 	border: none;
 	cursor: pointer;
@@ -117,13 +112,14 @@
 	}
 	margin: 40px 0px;
 }
-.icon-wps {
-	// border: red solid 1px;
+.icon-wps{
 	align-self: flex-end;
-	margin-right: 50px;
+	justify-self: flex-end;
+	text-align: end;
 	img {
 		width: 75px;
 		height: 75px;
 		cursor: pointer;
+		
 	}
 }

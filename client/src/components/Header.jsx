@@ -62,6 +62,7 @@ class Header extends Component {
 
     handleSesion = () => {
         localStorage.clear();
+        window.location.reload();
         this.props.history.push('/');
     }
 

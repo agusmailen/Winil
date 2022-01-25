@@ -9,7 +9,7 @@ const ButtonMercadoPago = ({ items, history }) => {
 	const handleCheckout = async (item) => {
 		const response = await axios.post('http://localhost:3001/checkout', item);
 		isAuth() ?
-			window.location.href = response.data.payload.body.init_point
+			window.open(response.data.payload.body.init_point, '_blank')
 		:
 			history.push({
 				pathname: '/Login',
