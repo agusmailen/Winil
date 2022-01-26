@@ -7,6 +7,7 @@ import Register from '../containers/Register';
 //import Profile from '../containers/Profile';
 import Player from '../containers/Player';
 import Cart from '../containers/Cart';
+import Contact from '../components/Contact';
 
 const App = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const App = () => (
           <Route exact path='/Register' component={Register} />
           <Route exact path='/track/:playerId' component={Player} />
           <Route exact path='/Cart' component={Cart} />
+          <Route exact path='/Contact' component={Contact} />
           <PrivateRoute exact path='/' component={Home} />
       </Switch>
   </BrowserRouter>

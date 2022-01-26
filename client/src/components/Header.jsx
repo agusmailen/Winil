@@ -83,7 +83,7 @@ class Header extends Component {
                                     {this.props.location.pathname === '/' ? <Link2 to='catalogo-id' smooth={true} duration={1000}>BEATS</Link2> : <Link1 to='/'>BEATS</Link1>}
                                 </li>
                                 <li>
-                                    <Link2 to='contact_id' smooth={true} duration={1000}>CONTACTO</Link2>
+                                    {this.props.location.pathname === '/' ? <Link2 to='contact_id' smooth={true} duration={1000}>CONTACTO</Link2> : <Link1 to='/'>CONTACTO</Link1>}
                                 </li>
                                 { isAuth() ?
                                 (

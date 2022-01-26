@@ -29,7 +29,12 @@ const trackSchema = new Schema({
 	background: {
 		type: String,
 		required: false
+	},
+	key: {
+		type: String,
+		required: true
 	}
+
 });
 
 const Track = mongoose.model('track', trackSchema);

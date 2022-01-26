@@ -7,6 +7,7 @@ import '../assets/styles/components/Catalogo.scss';
 import background from '../assets/static/fondo_hd_169_mesa_mezclas_bn.jpg';
 //Components
 import CatalogueItem from './CatalogoItem';
+import Filters from './Filters';
 //Actions
 import { listRequest } from '../redux/actions/Track.actions';
 
@@ -23,6 +24,7 @@ const Catalogue = (props) => {
 			</div>
 			<div className='catalogue_container' id='catalogo-id'>
 				<div className='filter_container'>
+					<Filters />
 				</div>
 				<div className='container_items'>
 					{payload.map((item) => {

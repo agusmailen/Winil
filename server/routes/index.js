@@ -10,7 +10,7 @@ routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
 //Filters
 const FilterController = require('../controller/Filters.controller');
 const Filter = new FilterController();
-routes.get('/filters', (Filter.getFilters.bind(Filter)));
+routes.post('/filters', (Filter.getFilters.bind(Filter)));
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();

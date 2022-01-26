@@ -57,14 +57,7 @@ const Player = (props) => {
 							<div className='player_items'>
 								<div>
 									<BarChartRoundedIcon />
-									<div>
 									{track.musicalGenre?.join(' ◦ ')}
-										{/* {track.musicalGenre?.map((item) => {
-											return (
-												<span key={item}>{item}</span>
-											);
-										})} */}
-									</div>
 								</div>
 								<div>
 									<AudiotrackRoundedIcon />
@@ -74,14 +67,7 @@ const Player = (props) => {
 								</div>
 								<div>
 									<FavoriteRoundedIcon />
-									<div>
-										{track.musicalMood?.join(' ◦ ')}
-										{/* {track.musicalMood?.map((item) => {
-											return (
-												<span key={item}>{item}</span>
-											);
-										})} */}
-									</div>
+									{track.musicalMood?.join(' ◦ ')}
 								</div>
 							</div>
 						</div>
