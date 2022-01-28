@@ -10,6 +10,10 @@ class FilterService {
 	getTracksByMood() {
 		return TrackModel.distinct("musicalMood");
 	}
+
+	getTracksByKey() {
+		return TrackModel.distinct("key");
+	}
 }
 
 module.exports = FilterService;

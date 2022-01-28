@@ -71,7 +71,7 @@ class Header extends Component {
             <div className='header__container_initial' id='header'>
                 <nav className={this.state.activeClass}>
                     <h2>
-                        <Link1 to='/'>WINIL</Link1>
+                        <Link1 to='/'>PIMP CRIMSON</Link1>
                     </h2>
                     <div className='header__menu'>
                         <div className='header__menu--ul'>

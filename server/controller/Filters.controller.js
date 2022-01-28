@@ -13,15 +13,16 @@ class FilterController {
 
 	async getFilters(req, res) {
 		const filtersByGenre = await Filter.getTracksByGenre().then(res => {return res}).catch(err => {return res.json ({ status: 400, error: err, message: 'Ocurrió error al obtener los generos' })})
-		const generos = this.getCheckbox(filtersByGenre, { label: 'Generos' })
+		const generos = this.getCheckbox(filtersByGenre, { label: 'Genero' })
 		
 		const filtersByMood = await Filter.getTracksByMood().then(res => {return res}).catch(err => {return res.json ({ status: 400, error: err, message: 'Ocurrió error al obtener los moods' })})
 		const moods = this.getCheckbox(filtersByMood, { label: 'Mood' })
 		
-		//const filtersBykey
-		
+		const filtersByKey = await Filter.getTracksByKey().then(res => {return res}).catch(err => {return res.json ({ status: 400, error: err, message: 'Ocurrió error al obtener las keys' })})
+		const keys = this.getCheckbox(filtersByKey, { label: 'Key' })
+
 		return res.json({
-			components: [generos, moods]
+			components: [generos, moods, keys]
 		})
 	}
 }
