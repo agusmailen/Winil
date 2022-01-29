@@ -1,4 +1,3 @@
-//const { db } = require('../models/Track.model');
 const TrackModel = require('../models/Track.model');
 
 class FilterService {
@@ -13,6 +12,10 @@ class FilterService {
 
 	getTracksByKey() {
 		return TrackModel.distinct("key");
+	}
+
+	filterTracks(value, array) {
+		return TrackModel.find({ [value]: { $in: array }});
 	}
 }
 

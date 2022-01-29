@@ -1,4 +1,3 @@
-//const {stringify} = require('flatted');
 const FilterService = require('../services/filters.services');
 const Filter = new FilterService();
 
@@ -25,29 +24,29 @@ class FilterController {
 			components: [generos, moods, keys]
 		})
 	}
+
+	async filterTracks(req, res) {
+		//const filters = [{  clave: ['musicalGenre'], valor: ['Trap'] }, {  clave: ['musicalMood'], valor: ['Sad'] }];
+		const filters = req.body.filters;
+		let result = [];
+		let ids = [];
+
+		//filtrar por genero, mood, key
+		for (const filter of filters ) {
+			const tracks = await Filter.filterTracks(filter.clave, filter.valor).then(res => {return res}).catch(err => {return res.json ({ status:400, error: err, message: 'No se puedo obtener los filtros' })})
+			for (const track of tracks) {
+				if (!ids.includes(track.id)) {
+					ids.push(track.id)
+					result.push(track)
+				}
+			}
+
+		}
+
+		return res.json({
+			tracks: result
+		})
+	}
 }
 
 module.exports = FilterController;
-
-
-
-
-// 	getDropdown(payload, componentProps) {
-// 		return {
-// 			type: "dropdown",
-// 			data: {
-// 				label: comopnentProps.label,
-// 				values: payload
-// 			}
-// 		}
-// 	}
-
-// 	getFilters() {
-// 		const generos = getDropdown(getSongsByGenre(), { label: "Generos" })
-// 		const duracion = getDropdown(getSongsByDuracion(), { label: "duracion" })
-
-// 		return res.json({
-// 			components: [generos, duracion]
-// 		})
-// 	}
-// }

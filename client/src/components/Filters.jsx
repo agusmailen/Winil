@@ -10,28 +10,35 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { createFilters } from '../redux/actions/Filters.actions';
 
 const Filters = (props) => {
-
+	const { filter } = props;
+	//aca tengo que armar el payload en funcion de lo que se selecciona.
+	const handleFilter = (e) => {
+		//console.log(event);
+		console.log(e.target.id);
+		console.log(e.target.value);
+		console.log(props);
+	};
 	useEffect(() => {
 		props.createFilters();
 	}, []);
-
 	return (
 		<Fragment>
 			<h1 className='filters-title'>FILTRAR POR...</h1>
 			<div>
-				{props.filter[0]?.map((item) => {
+				{filter[0]?.map((item) => {
 					return (
 						<>
 							<h4 key={item.label} className='filters-subtitle'>{item.label}</h4>
-							{item.values.map((item) => {
+							{item.values.map((filter) => {
 								return (
 									<div className='item-container'>
 										<FormControlLabel
-											value='end'
-											control={<Checkbox />}
-											label={item}
+											value={filter}
+											control={<Checkbox id={item.label} />}
+											label={filter}
 											labelPlacement='end'
 											sx={{ '& .MuiSvgIcon-root': { fontSize: 16, color: '#212121' } }}
+											onChange={handleFilter}
 										/>
 									</div>
 								);

@@ -11,6 +11,7 @@ routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
 const FilterController = require('../controller/Filters.controller');
 const Filter = new FilterController();
 routes.post('/filters', (Filter.getFilters.bind(Filter)));
+routes.post('/tracks/filters', Filter.filterTracks.bind(Filter));
 //User
 const UserController = require('../controller/User.controller');
 const User = new UserController();
