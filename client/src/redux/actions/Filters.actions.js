@@ -12,3 +12,9 @@ export const createFilters = () => {
 		});
 	};
 };
+
+export const setQuery = (payload) => {
+	return (dispatch) => {
+		dispatch({ type: 'CHANGE_QUERY', payload });
+	};
+};

@@ -7,16 +7,14 @@ import '../assets/styles/components/Catalogo.scss';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 //actions
-import { createFilters } from '../redux/actions/Filters.actions';
+import { createFilters, setQuery } from '../redux/actions/Filters.actions';
 
 const Filters = (props) => {
 	const { filter } = props;
 	//aca tengo que armar el payload en funcion de lo que se selecciona.
-	const handleFilter = (e) => {
-		//console.log(event);
-		console.log(e.target.id);
-		console.log(e.target.value);
-		console.log(props);
+	const handleFilter = (event) => {
+		const data = [event.target.id, event.target.value];
+		props.setQuery(data);
 	};
 	useEffect(() => {
 		props.createFilters();
@@ -34,7 +32,7 @@ const Filters = (props) => {
 									<div className='item-container'>
 										<FormControlLabel
 											value={filter}
-											control={<Checkbox id={item.label} />}
+											control={<Checkbox id={item.database} />}
 											label={filter}
 											labelPlacement='end'
 											sx={{ '& .MuiSvgIcon-root': { fontSize: 16, color: '#212121' } }}
@@ -58,8 +56,10 @@ const Filters = (props) => {
 const mapStateToProps = (state) => ({
 	filter: state.filter.filters,
 	error: state.filter.error,
+	query: state.filter.query,
 });
 
 export default connect(mapStateToProps, {
 	createFilters,
+	setQuery,
 })(Filters);

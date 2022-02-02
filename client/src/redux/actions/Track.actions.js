@@ -25,3 +25,17 @@ export const listRequestId = (payload) => {
 		});
 	};
 };
+
+export const listFilters = (payload) => {
+	return (dispatch) => {
+		axios.post('http://localhost:3001/tracks/filters', payload)
+		.then((response) => {
+			console.log(response.status);
+			if (response.status !== 200) return dispatch({ type: 'LIST_FAILED', error: response.data });
+			dispatch({ type: 'LIST_FILTERS_TRACKS', payload: response.data.tracks });
+		})
+		.catch((err) => {
+			dispatch({ type: 'LIST_FAILED', error: err });
+		});
+	};
+};

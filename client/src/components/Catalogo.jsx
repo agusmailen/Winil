@@ -9,13 +9,15 @@ import background from '../assets/static/fondo_hd_169_mesa_mezclas_bn.jpg';
 import CatalogueItem from './CatalogoItem';
 import Filters from './Filters';
 //Actions
-import { listRequest } from '../redux/actions/Track.actions';
+import { listRequest, listFilters } from '../redux/actions/Track.actions';
+import isEmpty from '../utils/isEmpty';
 
 const Catalogue = (props) => {
-	const { payload } = props;
+	const { payload, query } = props;
 	useEffect(() => {
 		props.listRequest();
-	}, []);
+		isEmpty(query) ? props.listRequest() : props.listFilters(query);
+	}, [query]);
 
 	return (
 		<Fragment>
@@ -27,7 +29,7 @@ const Catalogue = (props) => {
 					<Filters />
 				</div>
 				<div className='container_items'>
-					{payload.map((item) => {
+					{payload?.map((item) => {
 						return (
 							<CatalogueItem key={item._id} {...item} />
 						);
@@ -42,8 +44,10 @@ const mapStateToProps = (state) => {
 	return {
 		payload: state.track.tracks,
 		error: state.track.error,
+		query: state.filter.query,
 	};
 };
 export default connect(mapStateToProps, {
 	listRequest,
+	listFilters,
 })(Catalogue);
