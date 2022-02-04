@@ -7,7 +7,7 @@ import '../assets/styles/components/Catalogo.scss';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 //actions
-import { createFilters, setQuery } from '../redux/actions/Filters.actions';
+import { createFilters, setQuery, setQueryBpm } from '../redux/actions/Filters.actions';
 
 const Filters = (props) => {
 	const { filter } = props;
@@ -15,6 +15,14 @@ const Filters = (props) => {
 	const handleFilter = (event) => {
 		const data = [event.target.id, event.target.value];
 		props.setQuery(data);
+	};
+	const handleFilterInput = (event) => {
+		if (event.keyCode === 13) {
+			const min = event.target.form.min.value ? event.target.form.min.value : 0;
+			const max = event.target.form.max.value ? event.target.form.max.value : 900;
+			const dataBpm = [min, max];
+			props.setQueryBpm(dataBpm);
+		};
 	};
 	useEffect(() => {
 		props.createFilters();
@@ -45,9 +53,11 @@ const Filters = (props) => {
 					);
 				})}
 				<h4 className='filters-subtitle'>BPM</h4>
-				<input type='text' className='input-filter-BPM' placeholder='0' />
-				<span className='span-filters-BPM'>hasta</span>
-				<input type='text' className='input-filter-BPM' placeholder='900' />
+				<form action='submit' onKeyDown={handleFilterInput}>
+					<input type='text' className='input-filter-BPM' placeholder='0' name='min' />
+					<span className='span-filters-BPM'>hasta</span>
+					<input type='text' className='input-filter-BPM' placeholder='900' name='max' />
+				</form>
 			</div>
 		</Fragment>
 	);
@@ -62,4 +72,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
 	createFilters,
 	setQuery,
+	setQueryBpm,
 })(Filters);

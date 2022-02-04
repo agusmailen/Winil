@@ -17,6 +17,10 @@ class FilterService {
 	filterTracks(value, array) {
 		return TrackModel.find({ [value]: { $in: array }});
 	}
+
+	filterTracksBpm(array) {
+		return TrackModel.find({ $and: [{ "bpm": {$gte: parseInt(array[0], 16)}}, {"bpm": {$lte: parseInt(array[1], 16)}} ]})
+	}
 }
 
 module.exports = FilterService;

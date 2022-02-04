@@ -18,3 +18,9 @@ export const setQuery = (payload) => {
 		dispatch({ type: 'CHANGE_QUERY', payload });
 	};
 };
+
+export const setQueryBpm = (payload) => {
+	return (dispatch) => {
+		dispatch({ type: 'CHANGE_QUERY_BPM', payload });
+	};
+};

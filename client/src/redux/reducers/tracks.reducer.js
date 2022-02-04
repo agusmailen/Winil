@@ -10,7 +10,6 @@ const tracksReducer = (state = initialState, action) => {
 		case 'LIST_REQUEST_ID':
 			return { ...state, track_id: payload.payload, error: null };
 		case 'LIST_FILTERS_TRACKS':
-			console.log('desde reducer', payload);
 			return { ...state, tracks: payload };
 		default:
 			return state;

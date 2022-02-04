@@ -34,19 +34,12 @@
 	}
 }
 .contact__container--media {
-	//border: 1px solid red;
 	margin: 0 auto;
 	width: 40%;
-	// min-height: 80vh;
-	// display: flex;
-	// flex-direction: column;
 }
 .contact__container--media--data {
-	//border: 1px solid red;
 	width: 75%;
 	margin: 0 auto;
-	// margin: 63px 0px 0px 120px;
-	// height: 400px;
 }
 .contact-input {
 	outline: none;
@@ -57,7 +50,7 @@
 .contact-textArea {
 	outline: none;
 	margin: 5px;
-	width: 92.5%;
+	width: calc(100%-26px);
 	padding: 12px 8px;
 	margin-bottom: 5%;
 }
