@@ -11,7 +11,6 @@ import { createFilters, setQuery, setQueryBpm } from '../redux/actions/Filters.a
 
 const Filters = (props) => {
 	const { filter } = props;
-	//aca tengo que armar el payload en funcion de lo que se selecciona.
 	const handleFilter = (event) => {
 		const data = [event.target.id, event.target.value];
 		props.setQuery(data);
@@ -20,6 +19,7 @@ const Filters = (props) => {
 		if (event.keyCode === 13) {
 			const min = event.target.form.min.value ? event.target.form.min.value : 0;
 			const max = event.target.form.max.value ? event.target.form.max.value : 900;
+			//validaciones//
 			const dataBpm = [min, max];
 			props.setQueryBpm(dataBpm);
 		};

@@ -11,8 +11,8 @@ mongoose.connection.on('connected', () => console.info("[MongoDB] Connected to "
 
 
 app.use(express.urlencoded({extended: true})); 
-app.use(express.json()); 
 app.use(cors());
+app.use(express.json()); 
 app.use('/', require('./routes'));
 
 app.listen((config.port), () => {

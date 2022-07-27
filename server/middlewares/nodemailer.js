@@ -18,9 +18,9 @@ const sendMail = (req, res) => {
 
 
 	const transporter = nodemailer.createTransport({
-		service: 'gmail',
+		service: 'microsoft',
 		auth: {
-			user: 'marrapodiagustina@gmail.com',
+			user: 'agustina.marrapodi@hotmail.com',
 			pass: 'cosmefulanito678/'
 		},
 		tls: {
@@ -47,7 +47,6 @@ const sendMail = (req, res) => {
 		}
 	});
 
-	res.send(req.body);
 }
 
 module.exports = sendMail;

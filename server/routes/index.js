@@ -4,7 +4,7 @@ const jwt = require('../utils/jwt');
 const handleCheckout = require('../middlewares/mercadopago');
 const sendMail = require('../middlewares/nodemailer');
 //Emails-Contact
-routes.post('/sendEmail', (req, res) => sendMail(req, res));
+routes.post('/sendEmail', (req, res, next) => sendMail(req, res, next));
 //MercadoPago
 routes.post('/checkout', (req, res, next) => handleCheckout(req, res, next));
 //Filters
